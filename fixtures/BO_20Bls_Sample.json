@@ -1,0 +1,1971 @@
+{
+     "manifestHdr": {
+          "identificationSegment": {
+    "registryNumber": "GRIBOS26072801",
+    "date": "2026-05-08",
+    "customsOfficeSegment": {
+      "code": "01TC"
+    }
+  },
+  "generalSegment": {
+    "masterInformation": "",
+    "lastDischarge": "",
+    "arrivalSegment": {
+      "dateOfArrival": "2026-08-15",
+      "timeOfArrival": "18:30:00"
+    },
+    "departureSegment": {
+      "code": "ESALG"
+    },
+    "destinationSegment": {
+      "code": "NGTIN"
+    },
+    "carrierSegment": {
+      "name": "GRIMALDI",
+      "address": "",
+      "code": ""
+    },
+    "transportSegment": {
+      "nameOfTransporter": "OSAKA",
+      "placeOfTransporter": "",
+      "modeOfTransportSegment": {
+        "code": "1"
+      },
+      "nationalityOfTransportSegment": {
+        "code": "PA"
+      },
+      "transporterRegistrationSegment": {
+        "registrationNumber": "",
+        "registrationDate": ""
+      }
+    },
+    "tonnageSegment": {
+      "grossTonnage": "199100",
+      "netTonnage": "199100"
+    }
+  }
+     },
+
+       "blSegments": [
+        {
+      "identificationSegment": {
+        "bolReference": "MA34327992521A",
+        "registryNumber": "MAE2034",
+        "date": "2026-03-28",
+        "customsOfficeSegment": {
+          "code": "01TG"
+        }
+      },
+      "bolSpecificSegment": {
+        "lineNumber": 1,
+        "previousDocumentReference": "",
+        "bolNature": "23",
+        "uniqueCarrierReference": "",
+        "totalNumberOfContainers": 0,
+        "totalGrossMassManifested": 9955,
+        "volumeInCubicMeters": 67.92,
+        "numberOfSubBols": 0,
+        "bolTypeSegment": {
+          "code": "Master"
+        },
+        "exporterSegment": {
+          "name": "SHIPPER NAME AS PER BL",
+          "address": "SHIPPER ADDRESS AS PER BL",
+          "code": ""
+        },
+        "consigneeSegment": {
+          "name": "JOINT ENTERPRISE COMPANY LIMITED C/O MR JAMES BABA",
+          "address": "Km 16 Port/Aba Express Road",
+          "code": ""
+        },
+        "notifySegment": {
+          "name": "SAME AS CONSIGNEE",
+          "address": "-",
+          "code": ""
+        },
+        "placeOfLoadingSegment": {
+          "code": "USFPO"
+        },
+        "placeOfUnloadingSegment": {
+          "code": "NGTIN"
+        },
+        "packagesSegment": {
+          "packageTypeCode": "VH",
+          "numberOfPackages": 2
+        },
+        "shippingMarks": "CARGO",
+        "goodsDescription": "Cargo",
+        "freightSegment": {
+          "indicatorSegment": {
+            "code": ""
+          },
+          "value": 0,
+          "currency": "USD"
+        },
+        "customsSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "transportSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "insuranceSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "sealsSegment": {
+          "numberOfSeals": 0,
+          "marksOfSeals": "",
+          "sealingPartyCode": ""
+        },
+        "informationPartA": "",
+        "operationsSegment": {
+          "locationSegment": {
+            "information": "",
+            "code": "TG001"
+          }
+        }
+      },
+      "containers": [],
+      "items": [
+        {
+          "itemNumber": 1,
+          "itemDescription": "1M2B197CXKM000001",
+          "numberOfPackages": 1,
+          "packageTypeCode": "VH"
+        },
+        {
+          "itemNumber": 2,
+          "itemDescription": "1M2B197CXKM000002",
+          "numberOfPackages": 1,
+          "packageTypeCode": "VH"
+        }
+      ]
+    },
+    {
+      "identificationSegment": {
+        "bolReference": "MA34327992522A",
+        "registryNumber": "MAE2034",
+        "date": "2026-03-28",
+        "customsOfficeSegment": {
+          "code": "01TG"
+        }
+      },
+      "bolSpecificSegment": {
+        "lineNumber": 2,
+        "previousDocumentReference": "",
+        "bolNature": "23",
+        "uniqueCarrierReference": "",
+        "totalNumberOfContainers": 0,
+        "totalGrossMassManifested": 9955,
+        "volumeInCubicMeters": 67.92,
+        "numberOfSubBols": 0,
+        "bolTypeSegment": {
+          "code": "Master"
+        },
+        "exporterSegment": {
+          "name": "SHIPPER NAME AS PER BL",
+          "address": "SHIPPER ADDRESS AS PER BL",
+          "code": ""
+        },
+        "consigneeSegment": {
+          "name": "JOINT ENTERPRISE COMPANY LIMITED C/O MR JAMES BABA",
+          "address": "Km 16 Port/Aba Express Road",
+          "code": ""
+        },
+        "notifySegment": {
+          "name": "SAME AS CONSIGNEE",
+          "address": "-",
+          "code": ""
+        },
+        "placeOfLoadingSegment": {
+          "code": "USFPO"
+        },
+        "placeOfUnloadingSegment": {
+          "code": "NGTIN"
+        },
+        "packagesSegment": {
+          "packageTypeCode": "VH",
+          "numberOfPackages": 2
+        },
+        "shippingMarks": "CARGO",
+        "goodsDescription": "Cargo",
+        "freightSegment": {
+          "indicatorSegment": {
+            "code": ""
+          },
+          "value": 0,
+          "currency": "USD"
+        },
+        "customsSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "transportSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "insuranceSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "sealsSegment": {
+          "numberOfSeals": 0,
+          "marksOfSeals": "",
+          "sealingPartyCode": ""
+        },
+        "informationPartA": "",
+        "operationsSegment": {
+          "locationSegment": {
+            "information": "",
+            "code": "TG001"
+          }
+        }
+      },
+      "containers": [],
+      "items": [
+        {
+          "itemNumber": 1,
+          "itemDescription": "1M2B197CXKM000301",
+          "numberOfPackages": 1,
+          "packageTypeCode": "VH"
+        },
+        {
+          "itemNumber": 2,
+          "itemDescription": "1M2B197CXKM000302",
+          "numberOfPackages": 1,
+          "packageTypeCode": "VH"
+        }
+      ]
+    },
+    {
+      "identificationSegment": {
+        "bolReference": "MA34327992523A",
+        "registryNumber": "MAE2034",
+        "date": "2026-03-28",
+        "customsOfficeSegment": {
+          "code": "01TG"
+        }
+      },
+      "bolSpecificSegment": {
+        "lineNumber": 3,
+        "previousDocumentReference": "",
+        "bolNature": "23",
+        "uniqueCarrierReference": "",
+        "totalNumberOfContainers": 0,
+        "totalGrossMassManifested": 9955,
+        "volumeInCubicMeters": 67.92,
+        "numberOfSubBols": 0,
+        "bolTypeSegment": {
+          "code": "Master"
+        },
+        "exporterSegment": {
+          "name": "SHIPPER NAME AS PER BL",
+          "address": "SHIPPER ADDRESS AS PER BL",
+          "code": ""
+        },
+        "consigneeSegment": {
+          "name": "JOINT ENTERPRISE COMPANY LIMITED C/O MR JAMES BABA",
+          "address": "Km 16 Port/Aba Express Road",
+          "code": ""
+        },
+        "notifySegment": {
+          "name": "SAME AS CONSIGNEE",
+          "address": "-",
+          "code": ""
+        },
+        "placeOfLoadingSegment": {
+          "code": "USFPO"
+        },
+        "placeOfUnloadingSegment": {
+          "code": "NGTIN"
+        },
+        "packagesSegment": {
+          "packageTypeCode": "VH",
+          "numberOfPackages": 2
+        },
+        "shippingMarks": "CARGO",
+        "goodsDescription": "Cargo",
+        "freightSegment": {
+          "indicatorSegment": {
+            "code": ""
+          },
+          "value": 0,
+          "currency": "USD"
+        },
+        "customsSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "transportSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "insuranceSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "sealsSegment": {
+          "numberOfSeals": 0,
+          "marksOfSeals": "",
+          "sealingPartyCode": ""
+        },
+        "informationPartA": "",
+        "operationsSegment": {
+          "locationSegment": {
+            "information": "",
+            "code": "TG001"
+          }
+        }
+      },
+      "containers": [],
+      "items": [
+        {
+          "itemNumber": 1,
+          "itemDescription": "1M2B197CXKM000601",
+          "numberOfPackages": 1,
+          "packageTypeCode": "VH"
+        },
+        {
+          "itemNumber": 2,
+          "itemDescription": "1M2B197CXKM000602",
+          "numberOfPackages": 1,
+          "packageTypeCode": "VH"
+        }
+      ]
+    },
+    {
+      "identificationSegment": {
+        "bolReference": "MA34327992524A",
+        "registryNumber": "MAE2034",
+        "date": "2026-03-28",
+        "customsOfficeSegment": {
+          "code": "01TG"
+        }
+      },
+      "bolSpecificSegment": {
+        "lineNumber": 4,
+        "previousDocumentReference": "",
+        "bolNature": "23",
+        "uniqueCarrierReference": "",
+        "totalNumberOfContainers": 0,
+        "totalGrossMassManifested": 9955,
+        "volumeInCubicMeters": 67.92,
+        "numberOfSubBols": 0,
+        "bolTypeSegment": {
+          "code": "Master"
+        },
+        "exporterSegment": {
+          "name": "SHIPPER NAME AS PER BL",
+          "address": "SHIPPER ADDRESS AS PER BL",
+          "code": ""
+        },
+        "consigneeSegment": {
+          "name": "JOINT ENTERPRISE COMPANY LIMITED C/O MR JAMES BABA",
+          "address": "Km 16 Port/Aba Express Road",
+          "code": ""
+        },
+        "notifySegment": {
+          "name": "SAME AS CONSIGNEE",
+          "address": "-",
+          "code": ""
+        },
+        "placeOfLoadingSegment": {
+          "code": "USFPO"
+        },
+        "placeOfUnloadingSegment": {
+          "code": "NGTIN"
+        },
+        "packagesSegment": {
+          "packageTypeCode": "VH",
+          "numberOfPackages": 2
+        },
+        "shippingMarks": "CARGO",
+        "goodsDescription": "Cargo",
+        "freightSegment": {
+          "indicatorSegment": {
+            "code": ""
+          },
+          "value": 0,
+          "currency": "USD"
+        },
+        "customsSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "transportSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "insuranceSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "sealsSegment": {
+          "numberOfSeals": 0,
+          "marksOfSeals": "",
+          "sealingPartyCode": ""
+        },
+        "informationPartA": "",
+        "operationsSegment": {
+          "locationSegment": {
+            "information": "",
+            "code": "TG001"
+          }
+        }
+      },
+      "containers": [],
+      "items": [
+        {
+          "itemNumber": 1,
+          "itemDescription": "1M2B197CXKM000901",
+          "numberOfPackages": 1,
+          "packageTypeCode": "VH"
+        },
+        {
+          "itemNumber": 2,
+          "itemDescription": "1M2B197CXKM000902",
+          "numberOfPackages": 1,
+          "packageTypeCode": "VH"
+        }
+      ]
+    },
+    {
+      "identificationSegment": {
+        "bolReference": "MA34327992525A",
+        "registryNumber": "MAE2034",
+        "date": "2026-03-28",
+        "customsOfficeSegment": {
+          "code": "01TG"
+        }
+      },
+      "bolSpecificSegment": {
+        "lineNumber": 5,
+        "previousDocumentReference": "",
+        "bolNature": "23",
+        "uniqueCarrierReference": "",
+        "totalNumberOfContainers": 0,
+        "totalGrossMassManifested": 9955,
+        "volumeInCubicMeters": 67.92,
+        "numberOfSubBols": 0,
+        "bolTypeSegment": {
+          "code": "Master"
+        },
+        "exporterSegment": {
+          "name": "SHIPPER NAME AS PER BL",
+          "address": "SHIPPER ADDRESS AS PER BL",
+          "code": ""
+        },
+        "consigneeSegment": {
+          "name": "JOINT ENTERPRISE COMPANY LIMITED C/O MR JAMES BABA",
+          "address": "Km 16 Port/Aba Express Road",
+          "code": ""
+        },
+        "notifySegment": {
+          "name": "SAME AS CONSIGNEE",
+          "address": "-",
+          "code": ""
+        },
+        "placeOfLoadingSegment": {
+          "code": "USFPO"
+        },
+        "placeOfUnloadingSegment": {
+          "code": "NGTIN"
+        },
+        "packagesSegment": {
+          "packageTypeCode": "VH",
+          "numberOfPackages": 2
+        },
+        "shippingMarks": "CARGO",
+        "goodsDescription": "Cargo",
+        "freightSegment": {
+          "indicatorSegment": {
+            "code": ""
+          },
+          "value": 0,
+          "currency": "USD"
+        },
+        "customsSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "transportSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "insuranceSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "sealsSegment": {
+          "numberOfSeals": 0,
+          "marksOfSeals": "",
+          "sealingPartyCode": ""
+        },
+        "informationPartA": "",
+        "operationsSegment": {
+          "locationSegment": {
+            "information": "",
+            "code": "TG001"
+          }
+        }
+      },
+      "containers": [],
+      "items": [
+        {
+          "itemNumber": 1,
+          "itemDescription": "1M2B197CXKM001201",
+          "numberOfPackages": 1,
+          "packageTypeCode": "VH"
+        },
+        {
+          "itemNumber": 2,
+          "itemDescription": "1M2B197CXKM001202",
+          "numberOfPackages": 1,
+          "packageTypeCode": "VH"
+        }
+      ]
+    },
+    {
+      "identificationSegment": {
+        "bolReference": "MA34327992526A",
+        "registryNumber": "MAE2034",
+        "date": "2026-03-28",
+        "customsOfficeSegment": {
+          "code": "01TG"
+        }
+      },
+      "bolSpecificSegment": {
+        "lineNumber": 6,
+        "previousDocumentReference": "",
+        "bolNature": "23",
+        "uniqueCarrierReference": "",
+        "totalNumberOfContainers": 0,
+        "totalGrossMassManifested": 9955,
+        "volumeInCubicMeters": 67.92,
+        "numberOfSubBols": 0,
+        "bolTypeSegment": {
+          "code": "Master"
+        },
+        "exporterSegment": {
+          "name": "SHIPPER NAME AS PER BL",
+          "address": "SHIPPER ADDRESS AS PER BL",
+          "code": ""
+        },
+        "consigneeSegment": {
+          "name": "JOINT ENTERPRISE COMPANY LIMITED C/O MR JAMES BABA",
+          "address": "Km 16 Port/Aba Express Road",
+          "code": ""
+        },
+        "notifySegment": {
+          "name": "SAME AS CONSIGNEE",
+          "address": "-",
+          "code": ""
+        },
+        "placeOfLoadingSegment": {
+          "code": "USFPO"
+        },
+        "placeOfUnloadingSegment": {
+          "code": "NGTIN"
+        },
+        "packagesSegment": {
+          "packageTypeCode": "VH",
+          "numberOfPackages": 2
+        },
+        "shippingMarks": "CARGO",
+        "goodsDescription": "Cargo",
+        "freightSegment": {
+          "indicatorSegment": {
+            "code": ""
+          },
+          "value": 0,
+          "currency": "USD"
+        },
+        "customsSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "transportSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "insuranceSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "sealsSegment": {
+          "numberOfSeals": 0,
+          "marksOfSeals": "",
+          "sealingPartyCode": ""
+        },
+        "informationPartA": "",
+        "operationsSegment": {
+          "locationSegment": {
+            "information": "",
+            "code": "TG001"
+          }
+        }
+      },
+      "containers": [],
+      "items": [
+        {
+          "itemNumber": 1,
+          "itemDescription": "1M2B197CXKM001501",
+          "numberOfPackages": 1,
+          "packageTypeCode": "VH"
+        },
+        {
+          "itemNumber": 2,
+          "itemDescription": "1M2B197CXKM001502",
+          "numberOfPackages": 1,
+          "packageTypeCode": "VH"
+        }
+      ]
+    },
+    {
+      "identificationSegment": {
+        "bolReference": "MA34327992527A",
+        "registryNumber": "MAE2034",
+        "date": "2026-03-28",
+        "customsOfficeSegment": {
+          "code": "01TG"
+        }
+      },
+      "bolSpecificSegment": {
+        "lineNumber": 7,
+        "previousDocumentReference": "",
+        "bolNature": "23",
+        "uniqueCarrierReference": "",
+        "totalNumberOfContainers": 0,
+        "totalGrossMassManifested": 9955,
+        "volumeInCubicMeters": 67.92,
+        "numberOfSubBols": 0,
+        "bolTypeSegment": {
+          "code": "Master"
+        },
+        "exporterSegment": {
+          "name": "SHIPPER NAME AS PER BL",
+          "address": "SHIPPER ADDRESS AS PER BL",
+          "code": ""
+        },
+        "consigneeSegment": {
+          "name": "JOINT ENTERPRISE COMPANY LIMITED C/O MR JAMES BABA",
+          "address": "Km 16 Port/Aba Express Road",
+          "code": ""
+        },
+        "notifySegment": {
+          "name": "SAME AS CONSIGNEE",
+          "address": "-",
+          "code": ""
+        },
+        "placeOfLoadingSegment": {
+          "code": "USFPO"
+        },
+        "placeOfUnloadingSegment": {
+          "code": "NGTIN"
+        },
+        "packagesSegment": {
+          "packageTypeCode": "VH",
+          "numberOfPackages": 2
+        },
+        "shippingMarks": "CARGO",
+        "goodsDescription": "Cargo",
+        "freightSegment": {
+          "indicatorSegment": {
+            "code": ""
+          },
+          "value": 0,
+          "currency": "USD"
+        },
+        "customsSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "transportSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "insuranceSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "sealsSegment": {
+          "numberOfSeals": 0,
+          "marksOfSeals": "",
+          "sealingPartyCode": ""
+        },
+        "informationPartA": "",
+        "operationsSegment": {
+          "locationSegment": {
+            "information": "",
+            "code": "TG001"
+          }
+        }
+      },
+      "containers": [],
+      "items": [
+        {
+          "itemNumber": 1,
+          "itemDescription": "1M2B197CXKM001801",
+          "numberOfPackages": 1,
+          "packageTypeCode": "VH"
+        },
+        {
+          "itemNumber": 2,
+          "itemDescription": "1M2B197CXKM001802",
+          "numberOfPackages": 1,
+          "packageTypeCode": "VH"
+        }
+      ]
+    },
+    {
+      "identificationSegment": {
+        "bolReference": "MA34327992528A",
+        "registryNumber": "MAE2034",
+        "date": "2026-03-28",
+        "customsOfficeSegment": {
+          "code": "01TG"
+        }
+      },
+      "bolSpecificSegment": {
+        "lineNumber": 8,
+        "previousDocumentReference": "",
+        "bolNature": "23",
+        "uniqueCarrierReference": "",
+        "totalNumberOfContainers": 0,
+        "totalGrossMassManifested": 9955,
+        "volumeInCubicMeters": 67.92,
+        "numberOfSubBols": 0,
+        "bolTypeSegment": {
+          "code": "Master"
+        },
+        "exporterSegment": {
+          "name": "SHIPPER NAME AS PER BL",
+          "address": "SHIPPER ADDRESS AS PER BL",
+          "code": ""
+        },
+        "consigneeSegment": {
+          "name": "JOINT ENTERPRISE COMPANY LIMITED C/O MR JAMES BABA",
+          "address": "Km 16 Port/Aba Express Road",
+          "code": ""
+        },
+        "notifySegment": {
+          "name": "SAME AS CONSIGNEE",
+          "address": "-",
+          "code": ""
+        },
+        "placeOfLoadingSegment": {
+          "code": "USFPO"
+        },
+        "placeOfUnloadingSegment": {
+          "code": "NGTIN"
+        },
+        "packagesSegment": {
+          "packageTypeCode": "VH",
+          "numberOfPackages": 2
+        },
+        "shippingMarks": "CARGO",
+        "goodsDescription": "Cargo",
+        "freightSegment": {
+          "indicatorSegment": {
+            "code": ""
+          },
+          "value": 0,
+          "currency": "USD"
+        },
+        "customsSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "transportSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "insuranceSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "sealsSegment": {
+          "numberOfSeals": 0,
+          "marksOfSeals": "",
+          "sealingPartyCode": ""
+        },
+        "informationPartA": "",
+        "operationsSegment": {
+          "locationSegment": {
+            "information": "",
+            "code": "TG001"
+          }
+        }
+      },
+      "containers": [],
+      "items": [
+        {
+          "itemNumber": 1,
+          "itemDescription": "1M2B197CXKM002101",
+          "numberOfPackages": 1,
+          "packageTypeCode": "VH"
+        },
+        {
+          "itemNumber": 2,
+          "itemDescription": "1M2B197CXKM002102",
+          "numberOfPackages": 1,
+          "packageTypeCode": "VH"
+        }
+      ]
+    },
+    {
+      "identificationSegment": {
+        "bolReference": "MA34327992529A",
+        "registryNumber": "MAE2034",
+        "date": "2026-03-28",
+        "customsOfficeSegment": {
+          "code": "01TG"
+        }
+      },
+      "bolSpecificSegment": {
+        "lineNumber": 9,
+        "previousDocumentReference": "",
+        "bolNature": "23",
+        "uniqueCarrierReference": "",
+        "totalNumberOfContainers": 0,
+        "totalGrossMassManifested": 9955,
+        "volumeInCubicMeters": 67.92,
+        "numberOfSubBols": 0,
+        "bolTypeSegment": {
+          "code": "Master"
+        },
+        "exporterSegment": {
+          "name": "SHIPPER NAME AS PER BL",
+          "address": "SHIPPER ADDRESS AS PER BL",
+          "code": ""
+        },
+        "consigneeSegment": {
+          "name": "JOINT ENTERPRISE COMPANY LIMITED C/O MR JAMES BABA",
+          "address": "Km 16 Port/Aba Express Road",
+          "code": ""
+        },
+        "notifySegment": {
+          "name": "SAME AS CONSIGNEE",
+          "address": "-",
+          "code": ""
+        },
+        "placeOfLoadingSegment": {
+          "code": "USFPO"
+        },
+        "placeOfUnloadingSegment": {
+          "code": "NGTIN"
+        },
+        "packagesSegment": {
+          "packageTypeCode": "VH",
+          "numberOfPackages": 2
+        },
+        "shippingMarks": "CARGO",
+        "goodsDescription": "Cargo",
+        "freightSegment": {
+          "indicatorSegment": {
+            "code": ""
+          },
+          "value": 0,
+          "currency": "USD"
+        },
+        "customsSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "transportSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "insuranceSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "sealsSegment": {
+          "numberOfSeals": 0,
+          "marksOfSeals": "",
+          "sealingPartyCode": ""
+        },
+        "informationPartA": "",
+        "operationsSegment": {
+          "locationSegment": {
+            "information": "",
+            "code": "TG001"
+          }
+        }
+      },
+      "containers": [],
+      "items": [
+        {
+          "itemNumber": 1,
+          "itemDescription": "1M2B197CXKM002401",
+          "numberOfPackages": 1,
+          "packageTypeCode": "VH"
+        },
+        {
+          "itemNumber": 2,
+          "itemDescription": "1M2B197CXKM002402",
+          "numberOfPackages": 1,
+          "packageTypeCode": "VH"
+        }
+      ]
+    },
+    {
+      "identificationSegment": {
+        "bolReference": "MA34327992530A",
+        "registryNumber": "MAE2034",
+        "date": "2026-03-28",
+        "customsOfficeSegment": {
+          "code": "01TG"
+        }
+      },
+      "bolSpecificSegment": {
+        "lineNumber": 10,
+        "previousDocumentReference": "",
+        "bolNature": "23",
+        "uniqueCarrierReference": "",
+        "totalNumberOfContainers": 0,
+        "totalGrossMassManifested": 9955,
+        "volumeInCubicMeters": 67.92,
+        "numberOfSubBols": 0,
+        "bolTypeSegment": {
+          "code": "Master"
+        },
+        "exporterSegment": {
+          "name": "SHIPPER NAME AS PER BL",
+          "address": "SHIPPER ADDRESS AS PER BL",
+          "code": ""
+        },
+        "consigneeSegment": {
+          "name": "JOINT ENTERPRISE COMPANY LIMITED C/O MR JAMES BABA",
+          "address": "Km 16 Port/Aba Express Road",
+          "code": ""
+        },
+        "notifySegment": {
+          "name": "SAME AS CONSIGNEE",
+          "address": "-",
+          "code": ""
+        },
+        "placeOfLoadingSegment": {
+          "code": "USFPO"
+        },
+        "placeOfUnloadingSegment": {
+          "code": "NGTIN"
+        },
+        "packagesSegment": {
+          "packageTypeCode": "VH",
+          "numberOfPackages": 2
+        },
+        "shippingMarks": "CARGO",
+        "goodsDescription": "Cargo",
+        "freightSegment": {
+          "indicatorSegment": {
+            "code": ""
+          },
+          "value": 0,
+          "currency": "USD"
+        },
+        "customsSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "transportSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "insuranceSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "sealsSegment": {
+          "numberOfSeals": 0,
+          "marksOfSeals": "",
+          "sealingPartyCode": ""
+        },
+        "informationPartA": "",
+        "operationsSegment": {
+          "locationSegment": {
+            "information": "",
+            "code": "TG001"
+          }
+        }
+      },
+      "containers": [],
+      "items": [
+        {
+          "itemNumber": 1,
+          "itemDescription": "1M2B197CXKM002701",
+          "numberOfPackages": 1,
+          "packageTypeCode": "VH"
+        },
+        {
+          "itemNumber": 2,
+          "itemDescription": "1M2B197CXKM002702",
+          "numberOfPackages": 1,
+          "packageTypeCode": "VH"
+        }
+      ]
+    },
+    {
+      "identificationSegment": {
+        "bolReference": "MA34327992531A",
+        "registryNumber": "MAE2034",
+        "date": "2026-03-28",
+        "customsOfficeSegment": {
+          "code": "01TG"
+        }
+      },
+      "bolSpecificSegment": {
+        "lineNumber": 11,
+        "previousDocumentReference": "",
+        "bolNature": "23",
+        "uniqueCarrierReference": "",
+        "totalNumberOfContainers": 0,
+        "totalGrossMassManifested": 9955,
+        "volumeInCubicMeters": 67.92,
+        "numberOfSubBols": 0,
+        "bolTypeSegment": {
+          "code": "Master"
+        },
+        "exporterSegment": {
+          "name": "SHIPPER NAME AS PER BL",
+          "address": "SHIPPER ADDRESS AS PER BL",
+          "code": ""
+        },
+        "consigneeSegment": {
+          "name": "JOINT ENTERPRISE COMPANY LIMITED C/O MR JAMES BABA",
+          "address": "Km 16 Port/Aba Express Road",
+          "code": ""
+        },
+        "notifySegment": {
+          "name": "SAME AS CONSIGNEE",
+          "address": "-",
+          "code": ""
+        },
+        "placeOfLoadingSegment": {
+          "code": "USFPO"
+        },
+        "placeOfUnloadingSegment": {
+          "code": "NGTIN"
+        },
+        "packagesSegment": {
+          "packageTypeCode": "VH",
+          "numberOfPackages": 2
+        },
+        "shippingMarks": "CARGO",
+        "goodsDescription": "Cargo",
+        "freightSegment": {
+          "indicatorSegment": {
+            "code": ""
+          },
+          "value": 0,
+          "currency": "USD"
+        },
+        "customsSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "transportSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "insuranceSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "sealsSegment": {
+          "numberOfSeals": 0,
+          "marksOfSeals": "",
+          "sealingPartyCode": ""
+        },
+        "informationPartA": "",
+        "operationsSegment": {
+          "locationSegment": {
+            "information": "",
+            "code": "TG001"
+          }
+        }
+      },
+      "containers": [],
+      "items": [
+        {
+          "itemNumber": 1,
+          "itemDescription": "1M2B197CXKM003001",
+          "numberOfPackages": 1,
+          "packageTypeCode": "VH"
+        },
+        {
+          "itemNumber": 2,
+          "itemDescription": "1M2B197CXKM003002",
+          "numberOfPackages": 1,
+          "packageTypeCode": "VH"
+        }
+      ]
+    },
+    {
+      "identificationSegment": {
+        "bolReference": "MA34327992532A",
+        "registryNumber": "MAE2034",
+        "date": "2026-03-28",
+        "customsOfficeSegment": {
+          "code": "01TG"
+        }
+      },
+      "bolSpecificSegment": {
+        "lineNumber": 12,
+        "previousDocumentReference": "",
+        "bolNature": "23",
+        "uniqueCarrierReference": "",
+        "totalNumberOfContainers": 0,
+        "totalGrossMassManifested": 9955,
+        "volumeInCubicMeters": 67.92,
+        "numberOfSubBols": 0,
+        "bolTypeSegment": {
+          "code": "Master"
+        },
+        "exporterSegment": {
+          "name": "SHIPPER NAME AS PER BL",
+          "address": "SHIPPER ADDRESS AS PER BL",
+          "code": ""
+        },
+        "consigneeSegment": {
+          "name": "JOINT ENTERPRISE COMPANY LIMITED C/O MR JAMES BABA",
+          "address": "Km 16 Port/Aba Express Road",
+          "code": ""
+        },
+        "notifySegment": {
+          "name": "SAME AS CONSIGNEE",
+          "address": "-",
+          "code": ""
+        },
+        "placeOfLoadingSegment": {
+          "code": "USFPO"
+        },
+        "placeOfUnloadingSegment": {
+          "code": "NGTIN"
+        },
+        "packagesSegment": {
+          "packageTypeCode": "VH",
+          "numberOfPackages": 2
+        },
+        "shippingMarks": "CARGO",
+        "goodsDescription": "Cargo",
+        "freightSegment": {
+          "indicatorSegment": {
+            "code": ""
+          },
+          "value": 0,
+          "currency": "USD"
+        },
+        "customsSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "transportSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "insuranceSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "sealsSegment": {
+          "numberOfSeals": 0,
+          "marksOfSeals": "",
+          "sealingPartyCode": ""
+        },
+        "informationPartA": "",
+        "operationsSegment": {
+          "locationSegment": {
+            "information": "",
+            "code": "TG001"
+          }
+        }
+      },
+      "containers": [],
+      "items": [
+        {
+          "itemNumber": 1,
+          "itemDescription": "1M2B197CXKM003301",
+          "numberOfPackages": 1,
+          "packageTypeCode": "VH"
+        },
+        {
+          "itemNumber": 2,
+          "itemDescription": "1M2B197CXKM003302",
+          "numberOfPackages": 1,
+          "packageTypeCode": "VH"
+        }
+      ]
+    },
+    {
+      "identificationSegment": {
+        "bolReference": "MA34327992533A",
+        "registryNumber": "MAE2034",
+        "date": "2026-03-28",
+        "customsOfficeSegment": {
+          "code": "01TG"
+        }
+      },
+      "bolSpecificSegment": {
+        "lineNumber": 13,
+        "previousDocumentReference": "",
+        "bolNature": "23",
+        "uniqueCarrierReference": "",
+        "totalNumberOfContainers": 0,
+        "totalGrossMassManifested": 9955,
+        "volumeInCubicMeters": 67.92,
+        "numberOfSubBols": 0,
+        "bolTypeSegment": {
+          "code": "Master"
+        },
+        "exporterSegment": {
+          "name": "SHIPPER NAME AS PER BL",
+          "address": "SHIPPER ADDRESS AS PER BL",
+          "code": ""
+        },
+        "consigneeSegment": {
+          "name": "JOINT ENTERPRISE COMPANY LIMITED C/O MR JAMES BABA",
+          "address": "Km 16 Port/Aba Express Road",
+          "code": ""
+        },
+        "notifySegment": {
+          "name": "SAME AS CONSIGNEE",
+          "address": "-",
+          "code": ""
+        },
+        "placeOfLoadingSegment": {
+          "code": "USFPO"
+        },
+        "placeOfUnloadingSegment": {
+          "code": "NGTIN"
+        },
+        "packagesSegment": {
+          "packageTypeCode": "VH",
+          "numberOfPackages": 2
+        },
+        "shippingMarks": "CARGO",
+        "goodsDescription": "Cargo",
+        "freightSegment": {
+          "indicatorSegment": {
+            "code": ""
+          },
+          "value": 0,
+          "currency": "USD"
+        },
+        "customsSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "transportSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "insuranceSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "sealsSegment": {
+          "numberOfSeals": 0,
+          "marksOfSeals": "",
+          "sealingPartyCode": ""
+        },
+        "informationPartA": "",
+        "operationsSegment": {
+          "locationSegment": {
+            "information": "",
+            "code": "TG001"
+          }
+        }
+      },
+      "containers": [],
+      "items": [
+        {
+          "itemNumber": 1,
+          "itemDescription": "1M2B197CXKM003601",
+          "numberOfPackages": 1,
+          "packageTypeCode": "VH"
+        },
+        {
+          "itemNumber": 2,
+          "itemDescription": "1M2B197CXKM003602",
+          "numberOfPackages": 1,
+          "packageTypeCode": "VH"
+        }
+      ]
+    },
+    {
+      "identificationSegment": {
+        "bolReference": "MA34327992534A",
+        "registryNumber": "MAE2034",
+        "date": "2026-03-28",
+        "customsOfficeSegment": {
+          "code": "01TG"
+        }
+      },
+      "bolSpecificSegment": {
+        "lineNumber": 14,
+        "previousDocumentReference": "",
+        "bolNature": "23",
+        "uniqueCarrierReference": "",
+        "totalNumberOfContainers": 0,
+        "totalGrossMassManifested": 9955,
+        "volumeInCubicMeters": 67.92,
+        "numberOfSubBols": 0,
+        "bolTypeSegment": {
+          "code": "Master"
+        },
+        "exporterSegment": {
+          "name": "SHIPPER NAME AS PER BL",
+          "address": "SHIPPER ADDRESS AS PER BL",
+          "code": ""
+        },
+        "consigneeSegment": {
+          "name": "JOINT ENTERPRISE COMPANY LIMITED C/O MR JAMES BABA",
+          "address": "Km 16 Port/Aba Express Road",
+          "code": ""
+        },
+        "notifySegment": {
+          "name": "SAME AS CONSIGNEE",
+          "address": "-",
+          "code": ""
+        },
+        "placeOfLoadingSegment": {
+          "code": "USFPO"
+        },
+        "placeOfUnloadingSegment": {
+          "code": "NGTIN"
+        },
+        "packagesSegment": {
+          "packageTypeCode": "VH",
+          "numberOfPackages": 2
+        },
+        "shippingMarks": "CARGO",
+        "goodsDescription": "Cargo",
+        "freightSegment": {
+          "indicatorSegment": {
+            "code": ""
+          },
+          "value": 0,
+          "currency": "USD"
+        },
+        "customsSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "transportSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "insuranceSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "sealsSegment": {
+          "numberOfSeals": 0,
+          "marksOfSeals": "",
+          "sealingPartyCode": ""
+        },
+        "informationPartA": "",
+        "operationsSegment": {
+          "locationSegment": {
+            "information": "",
+            "code": "TG001"
+          }
+        }
+      },
+      "containers": [],
+      "items": [
+        {
+          "itemNumber": 1,
+          "itemDescription": "1M2B197CXKM003901",
+          "numberOfPackages": 1,
+          "packageTypeCode": "VH"
+        },
+        {
+          "itemNumber": 2,
+          "itemDescription": "1M2B197CXKM003902",
+          "numberOfPackages": 1,
+          "packageTypeCode": "VH"
+        }
+      ]
+    },
+    {
+      "identificationSegment": {
+        "bolReference": "MA34327992535A",
+        "registryNumber": "MAE2034",
+        "date": "2026-03-28",
+        "customsOfficeSegment": {
+          "code": "01TG"
+        }
+      },
+      "bolSpecificSegment": {
+        "lineNumber": 15,
+        "previousDocumentReference": "",
+        "bolNature": "23",
+        "uniqueCarrierReference": "",
+        "totalNumberOfContainers": 0,
+        "totalGrossMassManifested": 9955,
+        "volumeInCubicMeters": 67.92,
+        "numberOfSubBols": 0,
+        "bolTypeSegment": {
+          "code": "Master"
+        },
+        "exporterSegment": {
+          "name": "SHIPPER NAME AS PER BL",
+          "address": "SHIPPER ADDRESS AS PER BL",
+          "code": ""
+        },
+        "consigneeSegment": {
+          "name": "JOINT ENTERPRISE COMPANY LIMITED C/O MR JAMES BABA",
+          "address": "Km 16 Port/Aba Express Road",
+          "code": ""
+        },
+        "notifySegment": {
+          "name": "SAME AS CONSIGNEE",
+          "address": "-",
+          "code": ""
+        },
+        "placeOfLoadingSegment": {
+          "code": "USFPO"
+        },
+        "placeOfUnloadingSegment": {
+          "code": "NGTIN"
+        },
+        "packagesSegment": {
+          "packageTypeCode": "VH",
+          "numberOfPackages": 2
+        },
+        "shippingMarks": "CARGO",
+        "goodsDescription": "Cargo",
+        "freightSegment": {
+          "indicatorSegment": {
+            "code": ""
+          },
+          "value": 0,
+          "currency": "USD"
+        },
+        "customsSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "transportSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "insuranceSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "sealsSegment": {
+          "numberOfSeals": 0,
+          "marksOfSeals": "",
+          "sealingPartyCode": ""
+        },
+        "informationPartA": "",
+        "operationsSegment": {
+          "locationSegment": {
+            "information": "",
+            "code": "TG001"
+          }
+        }
+      },
+      "containers": [],
+      "items": [
+        {
+          "itemNumber": 1,
+          "itemDescription": "1M2B197CXKM004201",
+          "numberOfPackages": 1,
+          "packageTypeCode": "VH"
+        },
+        {
+          "itemNumber": 2,
+          "itemDescription": "1M2B197CXKM004202",
+          "numberOfPackages": 1,
+          "packageTypeCode": "VH"
+        }
+      ]
+    },
+    {
+      "identificationSegment": {
+        "bolReference": "MA34327992536A",
+        "registryNumber": "MAE2034",
+        "date": "2026-03-28",
+        "customsOfficeSegment": {
+          "code": "01TG"
+        }
+      },
+      "bolSpecificSegment": {
+        "lineNumber": 16,
+        "previousDocumentReference": "",
+        "bolNature": "23",
+        "uniqueCarrierReference": "",
+        "totalNumberOfContainers": 0,
+        "totalGrossMassManifested": 9955,
+        "volumeInCubicMeters": 67.92,
+        "numberOfSubBols": 0,
+        "bolTypeSegment": {
+          "code": "Master"
+        },
+        "exporterSegment": {
+          "name": "SHIPPER NAME AS PER BL",
+          "address": "SHIPPER ADDRESS AS PER BL",
+          "code": ""
+        },
+        "consigneeSegment": {
+          "name": "JOINT ENTERPRISE COMPANY LIMITED C/O MR JAMES BABA",
+          "address": "Km 16 Port/Aba Express Road",
+          "code": ""
+        },
+        "notifySegment": {
+          "name": "SAME AS CONSIGNEE",
+          "address": "-",
+          "code": ""
+        },
+        "placeOfLoadingSegment": {
+          "code": "USFPO"
+        },
+        "placeOfUnloadingSegment": {
+          "code": "NGTIN"
+        },
+        "packagesSegment": {
+          "packageTypeCode": "VH",
+          "numberOfPackages": 2
+        },
+        "shippingMarks": "CARGO",
+        "goodsDescription": "Cargo",
+        "freightSegment": {
+          "indicatorSegment": {
+            "code": ""
+          },
+          "value": 0,
+          "currency": "USD"
+        },
+        "customsSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "transportSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "insuranceSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "sealsSegment": {
+          "numberOfSeals": 0,
+          "marksOfSeals": "",
+          "sealingPartyCode": ""
+        },
+        "informationPartA": "",
+        "operationsSegment": {
+          "locationSegment": {
+            "information": "",
+            "code": "TG001"
+          }
+        }
+      },
+      "containers": [],
+      "items": [
+        {
+          "itemNumber": 1,
+          "itemDescription": "1M2B197CXKM004501",
+          "numberOfPackages": 1,
+          "packageTypeCode": "VH"
+        },
+        {
+          "itemNumber": 2,
+          "itemDescription": "1M2B197CXKM004502",
+          "numberOfPackages": 1,
+          "packageTypeCode": "VH"
+        }
+      ]
+    },
+    {
+      "identificationSegment": {
+        "bolReference": "MA34327992537A",
+        "registryNumber": "MAE2034",
+        "date": "2026-03-28",
+        "customsOfficeSegment": {
+          "code": "01TG"
+        }
+      },
+      "bolSpecificSegment": {
+        "lineNumber": 17,
+        "previousDocumentReference": "",
+        "bolNature": "23",
+        "uniqueCarrierReference": "",
+        "totalNumberOfContainers": 0,
+        "totalGrossMassManifested": 9955,
+        "volumeInCubicMeters": 67.92,
+        "numberOfSubBols": 0,
+        "bolTypeSegment": {
+          "code": "Master"
+        },
+        "exporterSegment": {
+          "name": "SHIPPER NAME AS PER BL",
+          "address": "SHIPPER ADDRESS AS PER BL",
+          "code": ""
+        },
+        "consigneeSegment": {
+          "name": "JOINT ENTERPRISE COMPANY LIMITED C/O MR JAMES BABA",
+          "address": "Km 16 Port/Aba Express Road",
+          "code": ""
+        },
+        "notifySegment": {
+          "name": "SAME AS CONSIGNEE",
+          "address": "-",
+          "code": ""
+        },
+        "placeOfLoadingSegment": {
+          "code": "USFPO"
+        },
+        "placeOfUnloadingSegment": {
+          "code": "NGTIN"
+        },
+        "packagesSegment": {
+          "packageTypeCode": "VH",
+          "numberOfPackages": 2
+        },
+        "shippingMarks": "CARGO",
+        "goodsDescription": "Cargo",
+        "freightSegment": {
+          "indicatorSegment": {
+            "code": ""
+          },
+          "value": 0,
+          "currency": "USD"
+        },
+        "customsSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "transportSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "insuranceSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "sealsSegment": {
+          "numberOfSeals": 0,
+          "marksOfSeals": "",
+          "sealingPartyCode": ""
+        },
+        "informationPartA": "",
+        "operationsSegment": {
+          "locationSegment": {
+            "information": "",
+            "code": "TG001"
+          }
+        }
+      },
+      "containers": [],
+      "items": [
+        {
+          "itemNumber": 1,
+          "itemDescription": "1M2B197CXKM004801",
+          "numberOfPackages": 1,
+          "packageTypeCode": "VH"
+        },
+        {
+          "itemNumber": 2,
+          "itemDescription": "1M2B197CXKM004802",
+          "numberOfPackages": 1,
+          "packageTypeCode": "VH"
+        }
+      ]
+    },
+    {
+      "identificationSegment": {
+        "bolReference": "MA34327992538A",
+        "registryNumber": "MAE2034",
+        "date": "2026-03-28",
+        "customsOfficeSegment": {
+          "code": "01TG"
+        }
+      },
+      "bolSpecificSegment": {
+        "lineNumber": 18,
+        "previousDocumentReference": "",
+        "bolNature": "23",
+        "uniqueCarrierReference": "",
+        "totalNumberOfContainers": 0,
+        "totalGrossMassManifested": 9955,
+        "volumeInCubicMeters": 67.92,
+        "numberOfSubBols": 0,
+        "bolTypeSegment": {
+          "code": "Master"
+        },
+        "exporterSegment": {
+          "name": "SHIPPER NAME AS PER BL",
+          "address": "SHIPPER ADDRESS AS PER BL",
+          "code": ""
+        },
+        "consigneeSegment": {
+          "name": "JOINT ENTERPRISE COMPANY LIMITED C/O MR JAMES BABA",
+          "address": "Km 16 Port/Aba Express Road",
+          "code": ""
+        },
+        "notifySegment": {
+          "name": "SAME AS CONSIGNEE",
+          "address": "-",
+          "code": ""
+        },
+        "placeOfLoadingSegment": {
+          "code": "USFPO"
+        },
+        "placeOfUnloadingSegment": {
+          "code": "NGTIN"
+        },
+        "packagesSegment": {
+          "packageTypeCode": "VH",
+          "numberOfPackages": 2
+        },
+        "shippingMarks": "CARGO",
+        "goodsDescription": "Cargo",
+        "freightSegment": {
+          "indicatorSegment": {
+            "code": ""
+          },
+          "value": 0,
+          "currency": "USD"
+        },
+        "customsSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "transportSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "insuranceSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "sealsSegment": {
+          "numberOfSeals": 0,
+          "marksOfSeals": "",
+          "sealingPartyCode": ""
+        },
+        "informationPartA": "",
+        "operationsSegment": {
+          "locationSegment": {
+            "information": "",
+            "code": "TG001"
+          }
+        }
+      },
+      "containers": [],
+      "items": [
+        {
+          "itemNumber": 1,
+          "itemDescription": "1M2B197CXKM005101",
+          "numberOfPackages": 1,
+          "packageTypeCode": "VH"
+        },
+        {
+          "itemNumber": 2,
+          "itemDescription": "1M2B197CXKM005102",
+          "numberOfPackages": 1,
+          "packageTypeCode": "VH"
+        }
+      ]
+    },
+    {
+      "identificationSegment": {
+        "bolReference": "MA34327992539A",
+        "registryNumber": "MAE2034",
+        "date": "2026-03-28",
+        "customsOfficeSegment": {
+          "code": "01TG"
+        }
+      },
+      "bolSpecificSegment": {
+        "lineNumber": 19,
+        "previousDocumentReference": "",
+        "bolNature": "23",
+        "uniqueCarrierReference": "",
+        "totalNumberOfContainers": 0,
+        "totalGrossMassManifested": 9955,
+        "volumeInCubicMeters": 67.92,
+        "numberOfSubBols": 0,
+        "bolTypeSegment": {
+          "code": "Master"
+        },
+        "exporterSegment": {
+          "name": "SHIPPER NAME AS PER BL",
+          "address": "SHIPPER ADDRESS AS PER BL",
+          "code": ""
+        },
+        "consigneeSegment": {
+          "name": "JOINT ENTERPRISE COMPANY LIMITED C/O MR JAMES BABA",
+          "address": "Km 16 Port/Aba Express Road",
+          "code": ""
+        },
+        "notifySegment": {
+          "name": "SAME AS CONSIGNEE",
+          "address": "-",
+          "code": ""
+        },
+        "placeOfLoadingSegment": {
+          "code": "USFPO"
+        },
+        "placeOfUnloadingSegment": {
+          "code": "NGTIN"
+        },
+        "packagesSegment": {
+          "packageTypeCode": "VH",
+          "numberOfPackages": 2
+        },
+        "shippingMarks": "CARGO",
+        "goodsDescription": "Cargo",
+        "freightSegment": {
+          "indicatorSegment": {
+            "code": ""
+          },
+          "value": 0,
+          "currency": "USD"
+        },
+        "customsSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "transportSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "insuranceSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "sealsSegment": {
+          "numberOfSeals": 0,
+          "marksOfSeals": "",
+          "sealingPartyCode": ""
+        },
+        "informationPartA": "",
+        "operationsSegment": {
+          "locationSegment": {
+            "information": "",
+            "code": "TG001"
+          }
+        }
+      },
+      "containers": [],
+      "items": [
+        {
+          "itemNumber": 1,
+          "itemDescription": "1M2B197CXKM005401",
+          "numberOfPackages": 1,
+          "packageTypeCode": "VH"
+        },
+        {
+          "itemNumber": 2,
+          "itemDescription": "1M2B197CXKM005402",
+          "numberOfPackages": 1,
+          "packageTypeCode": "VH"
+        }
+      ]
+    },
+    {
+      "identificationSegment": {
+        "bolReference": "MA34327992540A",
+        "registryNumber": "MAE2034",
+        "date": "2026-03-28",
+        "customsOfficeSegment": {
+          "code": "01TG"
+        }
+      },
+      "bolSpecificSegment": {
+        "lineNumber": 20,
+        "previousDocumentReference": "",
+        "bolNature": "23",
+        "uniqueCarrierReference": "",
+        "totalNumberOfContainers": 0,
+        "totalGrossMassManifested": 9955,
+        "volumeInCubicMeters": 67.92,
+        "numberOfSubBols": 0,
+        "bolTypeSegment": {
+          "code": "Master"
+        },
+        "exporterSegment": {
+          "name": "SHIPPER NAME AS PER BL",
+          "address": "SHIPPER ADDRESS AS PER BL",
+          "code": ""
+        },
+        "consigneeSegment": {
+          "name": "JOINT ENTERPRISE COMPANY LIMITED C/O MR JAMES BABA",
+          "address": "Km 16 Port/Aba Express Road",
+          "code": ""
+        },
+        "notifySegment": {
+          "name": "SAME AS CONSIGNEE",
+          "address": "-",
+          "code": ""
+        },
+        "placeOfLoadingSegment": {
+          "code": "USFPO"
+        },
+        "placeOfUnloadingSegment": {
+          "code": "NGTIN"
+        },
+        "packagesSegment": {
+          "packageTypeCode": "VH",
+          "numberOfPackages": 2
+        },
+        "shippingMarks": "CARGO",
+        "goodsDescription": "Cargo",
+        "freightSegment": {
+          "indicatorSegment": {
+            "code": ""
+          },
+          "value": 0,
+          "currency": "USD"
+        },
+        "customsSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "transportSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "insuranceSegment": {
+          "value": 0,
+          "currency": "USD"
+        },
+        "sealsSegment": {
+          "numberOfSeals": 0,
+          "marksOfSeals": "",
+          "sealingPartyCode": ""
+        },
+        "informationPartA": "",
+        "operationsSegment": {
+          "locationSegment": {
+            "information": "",
+            "code": "TG001"
+          }
+        }
+      },
+      "containers": [],
+      "items": [
+        {
+          "itemNumber": 1,
+          "itemDescription": "1M2B197CXKM005701",
+          "numberOfPackages": 1,
+          "packageTypeCode": "VH"
+        },
+        {
+          "itemNumber": 2,
+          "itemDescription": "1M2B197CXKM005702",
+          "numberOfPackages": 1,
+          "packageTypeCode": "VH"
+        }
+      ]
+    }
+       ]
+}

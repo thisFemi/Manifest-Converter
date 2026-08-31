@@ -1,0 +1,942 @@
+[
+  {
+    "identificationSegment": {
+      "bolReference": "MEA27N460210864",
+      "registryNumber": "2605MA27",
+      "date": "2026-05-08",
+      "customsOfficeSegment": {
+        "code": "01TC"
+      } 
+    },
+    "bolSpecificSegment": {
+      "lineNumber": 1,
+      "previousDocumentReference": "",
+      "bolNature": "23",
+      "uniqueCarrierReference": "",
+      "totalNumberOfContainers": 1,
+      "totalGrossMassManifested": 1.0,
+      "volumeInCubicMeters": 67,
+      "numberOfSubBols": 0,
+      "bolTypeSegment": {
+        "code": "House"
+      },
+      "exporterSegment": {
+        "name": "MULTILEGENDS AUTO SERVICES AND",
+        "address": "ACCESSORIES ON BEHALF OF JOSHUA: ADEOYE: 535 ROSSLAND ROAD E. AJAX, L1Z 0K8 : PH: 647-531-6945: EMAIL: YOMADEX1@GMAIL.COM",
+        "code": ""
+      },
+      "consigneeSegment": {
+        "name": "OMOTAYO OJO",
+        "address": "1 RABIATU THOMPSON CRESCENT.: SURULERE, LAGOS: TEL: 07033532003 : EMIAL : OJOOMOTAYO@YAHOO.COM: TAXID1 : 32245396-0001",
+        "code": ""
+      },
+      "notifySegment": {
+        "name": "OMOTAYO OJO",
+        "address": "1 RABIATU THOMPSON CRESCENT.: SURULERE, LAGOS: TEL: 07033532003 : TIN: 32245396-0001: EMIAL : OJOOMOTAYO@YAHOO.COM",
+        "code": ""
+      },
+      "placeOfLoadingSegment": {
+        "code": "ESALG"
+      },
+      "placeOfUnloadingSegment": {
+        "code": "NGTIN"
+      },
+      "packagesSegment": {
+        "packageTypeCode": "VH",
+        "numberOfPackages": 4.0
+      },
+      "shippingMarks": "CARGO",
+      "goodsDescription": "2015 TOYOTA RAV4 VIN 2T3DFREV0FW287353 WEIGHT 1,545 KG  2015 TOYOTA RAV4 VIN 2T3DFREV7FW371864 WEIGHT 1,585 KG  2016 TOYOTA RAV4 VIN 2T3DFREV7GW464613 WEIGHT 1,585 KG  2017 T",
+      "freightSegment": {
+        "value": 0,
+        "currency": "USD",
+        "indicatorSegment": {
+          "code": ""
+        }
+      },
+      "customsSegment": {
+        "value": 0,
+        "currency": "USD"
+      },
+      "transportSegment": {
+        "value": 0,
+        "currency": "USD"
+      },
+      "insuranceSegment": {
+        "value": 0,
+        "currency": "USD"
+      },
+      "sealsSegment": {
+        "numberOfSeals": 1,
+        "marksOfSeals": "A018063",
+        "sealingPartyCode": ""
+      },
+      "informationPartA": "",
+      "operationsSegment": {
+        "locationSegment": {
+          "information": "",
+          "code": "TG001"
+        }
+      }
+    },
+    "containers": [
+      {
+        "reference": "FCIU9108850",
+        "numberOfPackages": "4",
+        "type": "40DV",
+        "emptyFull": "1/1",
+        "seals": "A018063",
+        "marks1": "HBN",
+        "marks2": "HBN",
+        "sealingParty": "CR"
+      }
+    ],
+    "items": []
+  },
+  {
+    "identificationSegment": {
+      "bolReference": "MEA27N4602108544",
+      "registryNumber": "2605MA27",
+      "date": "2026-05-08",
+      "customsOfficeSegment": {
+        "code": "01TC"
+      }
+    },
+    "bolSpecificSegment": {
+      "lineNumber": 2,
+      "previousDocumentReference": "",
+      "bolNature": "23",
+      "uniqueCarrierReference": "",
+      "totalNumberOfContainers": 1,
+      "totalGrossMassManifested": 1.0,
+      "volumeInCubicMeters": 67,
+      "numberOfSubBols": 0,
+      "bolTypeSegment": {
+        "code": "House"
+      },
+      "exporterSegment": {
+        "name": "MULTILEGENDS AUTO SERVICES AND",
+        "address": "ACCESSORIES ON BEHALF OF JOSHUA: ADEOYE: 535 ROSSLAND ROAD E. AJAX, L1Z 0K8 : PH: 647-531-6945: EMAIL: YOMADEX1@GMAIL.COM",
+        "code": ""
+      },
+      "consigneeSegment": {
+        "name": "OMOTAYO OJO",
+        "address": "1 RABIATU THOMPSON CRESCENT.: SURULERE, LAGOS: TEL: 07033532003 : EMIAL : OJOOMOTAYO@YAHOO.COM: TAXID1 : 32245396-0001",
+        "code": ""
+      },
+      "notifySegment": {
+        "name": "OMOTAYO OJO",
+        "address": "1 RABIATU THOMPSON CRESCENT.: SURULERE, LAGOS: TEL: 07033532003 : TIN: 32245396-0001: EMIAL : OJOOMOTAYO@YAHOO.COM",
+        "code": ""
+      },
+      "placeOfLoadingSegment": {
+        "code": "ESALG"
+      },
+      "placeOfUnloadingSegment": {
+        "code": "NGTIN"
+      },
+      "packagesSegment": {
+        "packageTypeCode": "VH",
+        "numberOfPackages": 4.0
+      },
+      "shippingMarks": "CARGO",
+      "goodsDescription": "2015 TOYOTA RAV4 VIN 2T3DFREV0FW287353 WEIGHT 1,545 KG  2015 TOYOTA RAV4 VIN 2T3DFREV7FW371864 WEIGHT 1,585 KG  2016 TOYOTA RAV4 VIN 2T3DFREV7GW464613 WEIGHT 1,585 KG  2017 T",
+      "freightSegment": {
+        "value": 0,
+        "currency": "USD",
+        "indicatorSegment": {
+          "code": ""
+        }
+      },
+      "customsSegment": {
+        "value": 0,
+        "currency": "USD"
+      },
+      "transportSegment": {
+        "value": 0,
+        "currency": "USD"
+      },
+      "insuranceSegment": {
+        "value": 0,
+        "currency": "USD"
+      },
+      "sealsSegment": {
+        "numberOfSeals": 1,
+        "marksOfSeals": "A018063",
+        "sealingPartyCode": ""
+      },
+      "informationPartA": "",
+      "operationsSegment": {
+        "locationSegment": {
+          "information": "",
+          "code": "TG001"
+        }
+      }
+    },
+    "containers": [
+      {
+        "reference": "FCIU9108850",
+        "numberOfPackages": "4",
+        "type": "40DV",
+        "emptyFull": "1/1",
+        "seals": "A018063",
+        "marks1": "HBN",
+        "marks2": "HBN",
+        "sealingParty": "CR"
+      }
+    ],
+    "items": []
+  },
+  {
+    "identificationSegment": {
+      "bolReference": "MEA27N460210464",
+      "registryNumber": "2605MA27",
+      "date": "2026-05-08",
+      "customsOfficeSegment": {
+        "code": "01TC"
+      }
+    },
+    "bolSpecificSegment": {
+      "lineNumber": 3,
+      "previousDocumentReference": "",
+      "bolNature": "23",
+      "uniqueCarrierReference": "",
+      "totalNumberOfContainers": 1,
+      "totalGrossMassManifested": 1.0,
+      "volumeInCubicMeters": 67,
+      "numberOfSubBols": 0,
+      "bolTypeSegment": {
+        "code": "House"
+      },
+      "exporterSegment": {
+        "name": "MULTILEGENDS AUTO SERVICES AND",
+        "address": "ACCESSORIES ON BEHALF OF JOSHUA: ADEOYE: 535 ROSSLAND ROAD E. AJAX, L1Z 0K8 : PH: 647-531-6945: EMAIL: YOMADEX1@GMAIL.COM",
+        "code": ""
+      },
+      "consigneeSegment": {
+        "name": "OMOTAYO OJO",
+        "address": "1 RABIATU THOMPSON CRESCENT.: SURULERE, LAGOS: TEL: 07033532003 : EMIAL : OJOOMOTAYO@YAHOO.COM: TAXID1 : 32245396-0001",
+        "code": ""
+      },
+      "notifySegment": {
+        "name": "OMOTAYO OJO",
+        "address": "1 RABIATU THOMPSON CRESCENT.: SURULERE, LAGOS: TEL: 07033532003 : TIN: 32245396-0001: EMIAL : OJOOMOTAYO@YAHOO.COM",
+        "code": ""
+      },
+      "placeOfLoadingSegment": {
+        "code": "ESALG"
+      },
+      "placeOfUnloadingSegment": {
+        "code": "NGTIN"
+      },
+      "packagesSegment": {
+        "packageTypeCode": "VH",
+        "numberOfPackages": 4.0
+      },
+      "shippingMarks": "CARGO",
+      "goodsDescription": "2015 TOYOTA RAV4 VIN 2T3DFREV0FW287353 WEIGHT 1,545 KG  2015 TOYOTA RAV4 VIN 2T3DFREV7FW371864 WEIGHT 1,585 KG  2016 TOYOTA RAV4 VIN 2T3DFREV7GW464613 WEIGHT 1,585 KG  2017 T",
+      "freightSegment": {
+        "value": 0,
+        "currency": "USD",
+        "indicatorSegment": {
+          "code": ""
+        }
+      },
+      "customsSegment": {
+        "value": 0,
+        "currency": "USD"
+      },
+      "transportSegment": {
+        "value": 0,
+        "currency": "USD"
+      },
+      "insuranceSegment": {
+        "value": 0,
+        "currency": "USD"
+      },
+      "sealsSegment": {
+        "numberOfSeals": 1,
+        "marksOfSeals": "A018063",
+        "sealingPartyCode": ""
+      },
+      "informationPartA": "",
+      "operationsSegment": {
+        "locationSegment": {
+          "information": "",
+          "code": "TG001"
+        }
+      }
+    },
+    "containers": [
+      {
+        "reference": "FCIU9108850",
+        "numberOfPackages": "4",
+        "type": "40DV",
+        "emptyFull": "1/1",
+        "seals": "A018063",
+        "marks1": "HBN",
+        "marks2": "HBN",
+        "sealingParty": "CR"
+      }
+    ],
+    "items": []
+  },
+  {
+    "identificationSegment": {
+      "bolReference": "MEA27N4602108532",
+      "registryNumber": "2605MA27",
+      "date": "2026-05-08",
+      "customsOfficeSegment": {
+        "code": "01TC"
+      }
+    },
+    "bolSpecificSegment": {
+      "lineNumber": 4,
+      "previousDocumentReference": "",
+      "bolNature": "23",
+      "uniqueCarrierReference": "",
+      "totalNumberOfContainers": 1,
+      "totalGrossMassManifested": 1.0,
+      "volumeInCubicMeters": 67,
+      "numberOfSubBols": 0,
+      "bolTypeSegment": {
+        "code": "House"
+      },
+      "exporterSegment": {
+        "name": "MULTILEGENDS AUTO SERVICES AND",
+        "address": "ACCESSORIES ON BEHALF OF JOSHUA: ADEOYE: 535 ROSSLAND ROAD E. AJAX, L1Z 0K8 : PH: 647-531-6945: EMAIL: YOMADEX1@GMAIL.COM",
+        "code": ""
+      },
+      "consigneeSegment": {
+        "name": "OMOTAYO OJO",
+        "address": "1 RABIATU THOMPSON CRESCENT.: SURULERE, LAGOS: TEL: 07033532003 : EMIAL : OJOOMOTAYO@YAHOO.COM: TAXID1 : 32245396-0001",
+        "code": ""
+      },
+      "notifySegment": {
+        "name": "OMOTAYO OJO",
+        "address": "1 RABIATU THOMPSON CRESCENT.: SURULERE, LAGOS: TEL: 07033532003 : TIN: 32245396-0001: EMIAL : OJOOMOTAYO@YAHOO.COM",
+        "code": ""
+      },
+      "placeOfLoadingSegment": {
+        "code": "ESALG"
+      },
+      "placeOfUnloadingSegment": {
+        "code": "NGTIN"
+      },
+      "packagesSegment": {
+        "packageTypeCode": "VH",
+        "numberOfPackages": 4.0
+      },
+      "shippingMarks": "CARGO",
+      "goodsDescription": "2015 TOYOTA RAV4 VIN 2T3DFREV0FW287353 WEIGHT 1,545 KG  2015 TOYOTA RAV4 VIN 2T3DFREV7FW371864 WEIGHT 1,585 KG  2016 TOYOTA RAV4 VIN 2T3DFREV7GW464613 WEIGHT 1,585 KG  2017 T",
+      "freightSegment": {
+        "value": 0,
+        "currency": "USD",
+        "indicatorSegment": {
+          "code": ""
+        }
+      },
+      "customsSegment": {
+        "value": 0,
+        "currency": "USD"
+      },
+      "transportSegment": {
+        "value": 0,
+        "currency": "USD"
+      },
+      "insuranceSegment": {
+        "value": 0,
+        "currency": "USD"
+      },
+      "sealsSegment": {
+        "numberOfSeals": 1,
+        "marksOfSeals": "A018063",
+        "sealingPartyCode": ""
+      },
+      "informationPartA": "",
+      "operationsSegment": {
+        "locationSegment": {
+          "information": "",
+          "code": "TG001"
+        }
+      }
+    },
+    "containers": [
+      {
+        "reference": "FCIU9108850",
+        "numberOfPackages": "4",
+        "type": "40DV",
+        "emptyFull": "1/1",
+        "seals": "A018063",
+        "marks1": "HBN",
+        "marks2": "HBN",
+        "sealingParty": "CR"
+      }
+    ],
+    "items": []
+  },
+  {
+    "identificationSegment": {
+      "bolReference": "MEA27N460223964",
+      "registryNumber": "2605MA27",
+      "date": "2026-05-08",
+      "customsOfficeSegment": {
+        "code": "01TC"
+      }
+    },
+    "bolSpecificSegment": {
+      "lineNumber": 5,
+      "previousDocumentReference": "",
+      "bolNature": "23",
+      "uniqueCarrierReference": "",
+      "totalNumberOfContainers": 1,
+      "totalGrossMassManifested": 1.0,
+      "volumeInCubicMeters": 67,
+      "numberOfSubBols": 0,
+      "bolTypeSegment": {
+        "code": "House"
+      },
+      "exporterSegment": {
+        "name": "MULTILEGENDS AUTO SERVICES AND",
+        "address": "ACCESSORIES ON BEHALF OF JOSHUA: ADEOYE: 535 ROSSLAND ROAD E. AJAX, L1Z 0K8 : PH: 647-531-6945: EMAIL: YOMADEX1@GMAIL.COM",
+        "code": ""
+      },
+      "consigneeSegment": {
+        "name": "OMOTAYO OJO",
+        "address": "1 RABIATU THOMPSON CRESCENT.: SURULERE, LAGOS: TEL: 07033532003 : EMIAL : OJOOMOTAYO@YAHOO.COM: TAXID1 : 32245396-0001",
+        "code": ""
+      },
+      "notifySegment": {
+        "name": "OMOTAYO OJO",
+        "address": "1 RABIATU THOMPSON CRESCENT.: SURULERE, LAGOS: TEL: 07033532003 : TIN: 32245396-0001: EMIAL : OJOOMOTAYO@YAHOO.COM",
+        "code": ""
+      },
+      "placeOfLoadingSegment": {
+        "code": "ESALG"
+      },
+      "placeOfUnloadingSegment": {
+        "code": "NGTIN"
+      },
+      "packagesSegment": {
+        "packageTypeCode": "VH",
+        "numberOfPackages": 4.0
+      },
+      "shippingMarks": "CARGO",
+      "goodsDescription": "2015 TOYOTA RAV4 VIN 2T3DFREV0FW287353 WEIGHT 1,545 KG  2015 TOYOTA RAV4 VIN 2T3DFREV7FW371864 WEIGHT 1,585 KG  2016 TOYOTA RAV4 VIN 2T3DFREV7GW464613 WEIGHT 1,585 KG  2017 T",
+      "freightSegment": {
+        "value": 0,
+        "currency": "USD",
+        "indicatorSegment": {
+          "code": ""
+        }
+      },
+      "customsSegment": {
+        "value": 0,
+        "currency": "USD"
+      },
+      "transportSegment": {
+        "value": 0,
+        "currency": "USD"
+      },
+      "insuranceSegment": {
+        "value": 0,
+        "currency": "USD"
+      },
+      "sealsSegment": {
+        "numberOfSeals": 1,
+        "marksOfSeals": "A018063",
+        "sealingPartyCode": ""
+      },
+      "informationPartA": "",
+      "operationsSegment": {
+        "locationSegment": {
+          "information": "",
+          "code": "TG001"
+        }
+      }
+    },
+    "containers": [
+      {
+        "reference": "FCIU9108850",
+        "numberOfPackages": "4",
+        "type": "40DV",
+        "emptyFull": "1/1",
+        "seals": "A018063",
+        "marks1": "HBN",
+        "marks2": "HBN",
+        "sealingParty": "CR"
+      }
+    ],
+    "items": []
+  },
+  {
+    "identificationSegment": {
+      "bolReference": "MEA27N4602120394",
+      "registryNumber": "2605MA27",
+      "date": "2026-05-08",
+      "customsOfficeSegment": {
+        "code": "01TC"
+      }
+    },
+    "bolSpecificSegment": {
+      "lineNumber": 6,
+      "previousDocumentReference": "",
+      "bolNature": "23",
+      "uniqueCarrierReference": "",
+      "totalNumberOfContainers": 1,
+      "totalGrossMassManifested": 1.0,
+      "volumeInCubicMeters": 67,
+      "numberOfSubBols": 0,
+      "bolTypeSegment": {
+        "code": "House"
+      },
+      "exporterSegment": {
+        "name": "MULTILEGENDS AUTO SERVICES AND",
+        "address": "ACCESSORIES ON BEHALF OF JOSHUA: ADEOYE: 535 ROSSLAND ROAD E. AJAX, L1Z 0K8 : PH: 647-531-6945: EMAIL: YOMADEX1@GMAIL.COM",
+        "code": ""
+      },
+      "consigneeSegment": {
+        "name": "OMOTAYO OJO",
+        "address": "1 RABIATU THOMPSON CRESCENT.: SURULERE, LAGOS: TEL: 07033532003 : EMIAL : OJOOMOTAYO@YAHOO.COM: TAXID1 : 32245396-0001",
+        "code": ""
+      },
+      "notifySegment": {
+        "name": "OMOTAYO OJO",
+        "address": "1 RABIATU THOMPSON CRESCENT.: SURULERE, LAGOS: TEL: 07033532003 : TIN: 32245396-0001: EMIAL : OJOOMOTAYO@YAHOO.COM",
+        "code": ""
+      },
+      "placeOfLoadingSegment": {
+        "code": "ESALG"
+      },
+      "placeOfUnloadingSegment": {
+        "code": "NGTIN"
+      },
+      "packagesSegment": {
+        "packageTypeCode": "VH",
+        "numberOfPackages": 4.0
+      },
+      "shippingMarks": "CARGO",
+      "goodsDescription": "2015 TOYOTA RAV4 VIN 2T3DFREV0FW287353 WEIGHT 1,545 KG  2015 TOYOTA RAV4 VIN 2T3DFREV7FW371864 WEIGHT 1,585 KG  2016 TOYOTA RAV4 VIN 2T3DFREV7GW464613 WEIGHT 1,585 KG  2017 T",
+      "freightSegment": {
+        "value": 0,
+        "currency": "USD",
+        "indicatorSegment": {
+          "code": ""
+        }
+      },
+      "customsSegment": {
+        "value": 0,
+        "currency": "USD"
+      },
+      "transportSegment": {
+        "value": 0,
+        "currency": "USD"
+      },
+      "insuranceSegment": {
+        "value": 0,
+        "currency": "USD"
+      },
+      "sealsSegment": {
+        "numberOfSeals": 1,
+        "marksOfSeals": "A018063",
+        "sealingPartyCode": ""
+      },
+      "informationPartA": "",
+      "operationsSegment": {
+        "locationSegment": {
+          "information": "",
+          "code": "TG001"
+        }
+      }
+    },
+    "containers": [
+      {
+        "reference": "FCIU9108850",
+        "numberOfPackages": "4",
+        "type": "40DV",
+        "emptyFull": "1/1",
+        "seals": "A018063",
+        "marks1": "HBN",
+        "marks2": "HBN",
+        "sealingParty": "CR"
+      }
+    ],
+    "items": []
+  },
+  {
+    "identificationSegment": {
+      "bolReference": "MEA27N460210442",
+      "registryNumber": "2605MA27",
+      "date": "2026-05-08",
+      "customsOfficeSegment": {
+        "code": "01TC"
+      }
+    },
+    "bolSpecificSegment": {
+      "lineNumber": 7,
+      "previousDocumentReference": "",
+      "bolNature": "23",
+      "uniqueCarrierReference": "",
+      "totalNumberOfContainers": 1,
+      "totalGrossMassManifested": 1.0,
+      "volumeInCubicMeters": 67,
+      "numberOfSubBols": 0,
+      "bolTypeSegment": {
+        "code": "House"
+      },
+      "exporterSegment": {
+        "name": "MULTILEGENDS AUTO SERVICES AND",
+        "address": "ACCESSORIES ON BEHALF OF JOSHUA: ADEOYE: 535 ROSSLAND ROAD E. AJAX, L1Z 0K8 : PH: 647-531-6945: EMAIL: YOMADEX1@GMAIL.COM",
+        "code": ""
+      },
+      "consigneeSegment": {
+        "name": "OMOTAYO OJO",
+        "address": "1 RABIATU THOMPSON CRESCENT.: SURULERE, LAGOS: TEL: 07033532003 : EMIAL : OJOOMOTAYO@YAHOO.COM: TAXID1 : 32245396-0001",
+        "code": ""
+      },
+      "notifySegment": {
+        "name": "OMOTAYO OJO",
+        "address": "1 RABIATU THOMPSON CRESCENT.: SURULERE, LAGOS: TEL: 07033532003 : TIN: 32245396-0001: EMIAL : OJOOMOTAYO@YAHOO.COM",
+        "code": ""
+      },
+      "placeOfLoadingSegment": {
+        "code": "ESALG"
+      },
+      "placeOfUnloadingSegment": {
+        "code": "NGTIN"
+      },
+      "packagesSegment": {
+        "packageTypeCode": "VH",
+        "numberOfPackages": 4.0
+      },
+      "shippingMarks": "CARGO",
+      "goodsDescription": "2015 TOYOTA RAV4 VIN 2T3DFREV0FW287353 WEIGHT 1,545 KG  2015 TOYOTA RAV4 VIN 2T3DFREV7FW371864 WEIGHT 1,585 KG  2016 TOYOTA RAV4 VIN 2T3DFREV7GW464613 WEIGHT 1,585 KG  2017 T",
+      "freightSegment": {
+        "value": 0,
+        "currency": "USD",
+        "indicatorSegment": {
+          "code": ""
+        }
+      },
+      "customsSegment": {
+        "value": 0,
+        "currency": "USD"
+      },
+      "transportSegment": {
+        "value": 0,
+        "currency": "USD"
+      },
+      "insuranceSegment": {
+        "value": 0,
+        "currency": "USD"
+      },
+      "sealsSegment": {
+        "numberOfSeals": 1,
+        "marksOfSeals": "A018063",
+        "sealingPartyCode": ""
+      },
+      "informationPartA": "",
+      "operationsSegment": {
+        "locationSegment": {
+          "information": "",
+          "code": "TG001"
+        }
+      }
+    },
+    "containers": [
+      {
+        "reference": "FCIU9108850",
+        "numberOfPackages": "4",
+        "type": "40DV",
+        "emptyFull": "1/1",
+        "seals": "A018063",
+        "marks1": "HBN",
+        "marks2": "HBN",
+        "sealingParty": "CR"
+      }
+    ],
+    "items": []
+  },
+  {
+    "identificationSegment": {
+      "bolReference": "MEA27N46021083922",
+      "registryNumber": "2605MA27",
+      "date": "2026-05-08",
+      "customsOfficeSegment": {
+        "code": "01TC"
+      }
+    },
+    "bolSpecificSegment": {
+      "lineNumber": 8,
+      "previousDocumentReference": "",
+      "bolNature": "23",
+      "uniqueCarrierReference": "",
+      "totalNumberOfContainers": 1,
+      "totalGrossMassManifested": 1.0,
+      "volumeInCubicMeters": 67,
+      "numberOfSubBols": 0,
+      "bolTypeSegment": {
+        "code": "House"
+      },
+      "exporterSegment": {
+        "name": "MULTILEGENDS AUTO SERVICES AND",
+        "address": "ACCESSORIES ON BEHALF OF JOSHUA: ADEOYE: 535 ROSSLAND ROAD E. AJAX, L1Z 0K8 : PH: 647-531-6945: EMAIL: YOMADEX1@GMAIL.COM",
+        "code": ""
+      },
+      "consigneeSegment": {
+        "name": "OMOTAYO OJO",
+        "address": "1 RABIATU THOMPSON CRESCENT.: SURULERE, LAGOS: TEL: 07033532003 : EMIAL : OJOOMOTAYO@YAHOO.COM: TAXID1 : 32245396-0001",
+        "code": ""
+      },
+      "notifySegment": {
+        "name": "OMOTAYO OJO",
+        "address": "1 RABIATU THOMPSON CRESCENT.: SURULERE, LAGOS: TEL: 07033532003 : TIN: 32245396-0001: EMIAL : OJOOMOTAYO@YAHOO.COM",
+        "code": ""
+      },
+      "placeOfLoadingSegment": {
+        "code": "ESALG"
+      },
+      "placeOfUnloadingSegment": {
+        "code": "NGTIN"
+      },
+      "packagesSegment": {
+        "packageTypeCode": "VH",
+        "numberOfPackages": 4.0
+      },
+      "shippingMarks": "CARGO",
+      "goodsDescription": "2015 TOYOTA RAV4 VIN 2T3DFREV0FW287353 WEIGHT 1,545 KG  2015 TOYOTA RAV4 VIN 2T3DFREV7FW371864 WEIGHT 1,585 KG  2016 TOYOTA RAV4 VIN 2T3DFREV7GW464613 WEIGHT 1,585 KG  2017 T",
+      "freightSegment": {
+        "value": 0,
+        "currency": "USD",
+        "indicatorSegment": {
+          "code": ""
+        }
+      },
+      "customsSegment": {
+        "value": 0,
+        "currency": "USD"
+      },
+      "transportSegment": {
+        "value": 0,
+        "currency": "USD"
+      },
+      "insuranceSegment": {
+        "value": 0,
+        "currency": "USD"
+      },
+      "sealsSegment": {
+        "numberOfSeals": 1,
+        "marksOfSeals": "A018063",
+        "sealingPartyCode": ""
+      },
+      "informationPartA": "",
+      "operationsSegment": {
+        "locationSegment": {
+          "information": "",
+          "code": "TG001"
+        }
+      }
+    },
+    "containers": [
+      {
+        "reference": "FCIU9108850",
+        "numberOfPackages": "4",
+        "type": "40DV",
+        "emptyFull": "1/1",
+        "seals": "A018063",
+        "marks1": "HBN",
+        "marks2": "HBN",
+        "sealingParty": "CR"
+      }
+    ],
+    "items": []
+  },
+  {
+    "identificationSegment": {
+      "bolReference": "MEA27N4602640442",
+      "registryNumber": "2605MA27",
+      "date": "2026-05-08",
+      "customsOfficeSegment": {
+        "code": "01TC"
+      }
+    },
+    "bolSpecificSegment": {
+      "lineNumber": 9,
+      "previousDocumentReference": "",
+      "bolNature": "23",
+      "uniqueCarrierReference": "",
+      "totalNumberOfContainers": 1,
+      "totalGrossMassManifested": 1.0,
+      "volumeInCubicMeters": 67,
+      "numberOfSubBols": 0,
+      "bolTypeSegment": {
+        "code": "House"
+      },
+      "exporterSegment": {
+        "name": "MULTILEGENDS AUTO SERVICES AND",
+        "address": "ACCESSORIES ON BEHALF OF JOSHUA: ADEOYE: 535 ROSSLAND ROAD E. AJAX, L1Z 0K8 : PH: 647-531-6945: EMAIL: YOMADEX1@GMAIL.COM",
+        "code": ""
+      },
+      "consigneeSegment": {
+        "name": "OMOTAYO OJO",
+        "address": "1 RABIATU THOMPSON CRESCENT.: SURULERE, LAGOS: TEL: 07033532003 : EMIAL : OJOOMOTAYO@YAHOO.COM: TAXID1 : 32245396-0001",
+        "code": ""
+      },
+      "notifySegment": {
+        "name": "OMOTAYO OJO",
+        "address": "1 RABIATU THOMPSON CRESCENT.: SURULERE, LAGOS: TEL: 07033532003 : TIN: 32245396-0001: EMIAL : OJOOMOTAYO@YAHOO.COM",
+        "code": ""
+      },
+      "placeOfLoadingSegment": {
+        "code": "ESALG"
+      },
+      "placeOfUnloadingSegment": {
+        "code": "NGTIN"
+      },
+      "packagesSegment": {
+        "packageTypeCode": "VH",
+        "numberOfPackages": 4.0
+      },
+      "shippingMarks": "CARGO",
+      "goodsDescription": "2015 TOYOTA RAV4 VIN 2T3DFREV0FW287353 WEIGHT 1,545 KG  2015 TOYOTA RAV4 VIN 2T3DFREV7FW371864 WEIGHT 1,585 KG  2016 TOYOTA RAV4 VIN 2T3DFREV7GW464613 WEIGHT 1,585 KG  2017 T",
+      "freightSegment": {
+        "value": 0,
+        "currency": "USD",
+        "indicatorSegment": {
+          "code": ""
+        }
+      },
+      "customsSegment": {
+        "value": 0,
+        "currency": "USD"
+      },
+      "transportSegment": {
+        "value": 0,
+        "currency": "USD"
+      },
+      "insuranceSegment": {
+        "value": 0,
+        "currency": "USD"
+      },
+      "sealsSegment": {
+        "numberOfSeals": 1,
+        "marksOfSeals": "A018063",
+        "sealingPartyCode": ""
+      },
+      "informationPartA": "",
+      "operationsSegment": {
+        "locationSegment": {
+          "information": "",
+          "code": "TG001"
+        }
+      }
+    },
+    "containers": [
+      {
+        "reference": "FCIU9108850",
+        "numberOfPackages": "4",
+        "type": "40DV",
+        "emptyFull": "1/1",
+        "seals": "A018063",
+        "marks1": "HBN",
+        "marks2": "HBN",
+        "sealingParty": "CR"
+      }
+    ],
+    "items": []
+  },
+  {
+    "identificationSegment": {
+      "bolReference": "MEA27N460210842892",
+      "registryNumber": "2605MA27",
+      "date": "2026-05-08",
+      "customsOfficeSegment": {
+        "code": "01TC"
+      }
+    },
+    "bolSpecificSegment": {
+      "lineNumber": 10,
+      "previousDocumentReference": "",
+      "bolNature": "23",
+      "uniqueCarrierReference": "",
+      "totalNumberOfContainers": 1,
+      "totalGrossMassManifested": 1.0,
+      "volumeInCubicMeters": 67,
+      "numberOfSubBols": 0,
+      "bolTypeSegment": {
+        "code": "House"
+      },
+      "exporterSegment": {
+        "name": "MULTILEGENDS AUTO SERVICES AND",
+        "address": "ACCESSORIES ON BEHALF OF JOSHUA: ADEOYE: 535 ROSSLAND ROAD E. AJAX, L1Z 0K8 : PH: 647-531-6945: EMAIL: YOMADEX1@GMAIL.COM",
+        "code": ""
+      },
+      "consigneeSegment": {
+        "name": "OMOTAYO OJO",
+        "address": "1 RABIATU THOMPSON CRESCENT.: SURULERE, LAGOS: TEL: 07033532003 : EMIAL : OJOOMOTAYO@YAHOO.COM: TAXID1 : 32245396-0001",
+        "code": ""
+      },
+      "notifySegment": {
+        "name": "OMOTAYO OJO",
+        "address": "1 RABIATU THOMPSON CRESCENT.: SURULERE, LAGOS: TEL: 07033532003 : TIN: 32245396-0001: EMIAL : OJOOMOTAYO@YAHOO.COM",
+        "code": ""
+      },
+      "placeOfLoadingSegment": {
+        "code": "ESALG"
+      },
+      "placeOfUnloadingSegment": {
+        "code": "NGTIN"
+      },
+      "packagesSegment": {
+        "packageTypeCode": "VH",
+        "numberOfPackages": 4.0
+      },
+      "shippingMarks": "CARGO",
+      "goodsDescription": "2015 TOYOTA RAV4 VIN 2T3DFREV0FW287353 WEIGHT 1,545 KG  2015 TOYOTA RAV4 VIN 2T3DFREV7FW371864 WEIGHT 1,585 KG  2016 TOYOTA RAV4 VIN 2T3DFREV7GW464613 WEIGHT 1,585 KG  2017 T",
+      "freightSegment": {
+        "value": 0,
+        "currency": "USD",
+        "indicatorSegment": {
+          "code": ""
+        }
+      },
+      "customsSegment": {
+        "value": 0,
+        "currency": "USD"
+      },
+      "transportSegment": {
+        "value": 0,
+        "currency": "USD"
+      },
+      "insuranceSegment": {
+        "value": 0,
+        "currency": "USD"
+      },
+      "sealsSegment": {
+        "numberOfSeals": 1,
+        "marksOfSeals": "A018063",
+        "sealingPartyCode": ""
+      },
+      "informationPartA": "",
+      "operationsSegment": {
+        "locationSegment": {
+          "information": "",
+          "code": "TG001"
+        }
+      }
+    },
+    "containers": [
+      {
+        "reference": "FCIU9108850",
+        "numberOfPackages": "4",
+        "type": "40DV",
+        "emptyFull": "1/1",
+        "seals": "A018063",
+        "marks1": "HBN",
+        "marks2": "HBN",
+        "sealingParty": "CR"
+      }
+    ],
+    "items": []
+  }
+]

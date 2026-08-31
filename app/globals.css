@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+:root {
+  --ink: #12161c;
+  --ink-soft: #2a3038;
+  --paper: #f6f4ee;
+  --paper-line: #ddd8c9;
+  --brass: #b8873a;
+  --brass-deep: #8f6526;
+  --slate: #5b6472;
+  --ok: #3f7d58;
+  --warn: #b3462c;
+
+  --background: var(--paper);
+  --foreground: var(--ink);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-paper: var(--paper);
+  --color-paper-line: var(--paper-line);
+  --color-brass: var(--brass);
+  --color-brass-deep: var(--brass-deep);
+  --color-slate: var(--slate);
+  --color-ok: var(--ok);
+  --color-warn: var(--warn);
+  --font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-data: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-display);
+  background-image: linear-gradient(var(--paper-line) 1px, transparent 1px);
+  background-size: 100% 32px;
+  background-attachment: local;
+}
+
+.ticket {
+  background: #fffdf8;
+  border: 1px solid var(--paper-line);
+  box-shadow: 0 1px 0 var(--paper-line), 0 8px 24px -12px rgba(18, 22, 28, 0.25);
+}
+
+.data-field {
+  font-family: var(--font-data);
+  letter-spacing: 0.01em;
+}
+
+.stamp {
+  border: 2.5px solid var(--ok);
+  color: var(--ok);
+  border-radius: 9999px;
+  transform: rotate(-8deg);
+  animation: stamp-in 380ms cubic-bezier(0.2, 1.4, 0.4, 1) both;
+}
+
+@keyframes stamp-in {
+  0% {
+    opacity: 0;
+    transform: rotate(-8deg) scale(1.8);
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(-8deg) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stamp {
+    animation: none;
+  }
+}

@@ -1,0 +1,46 @@
+{
+	"identificationSegment": {
+		"registryNumber": "GRI0826IMO96808",
+		"date": "2026-03-25",
+		"customsOfficeSegment": {
+			"code": "01TG"
+		}
+	},
+	"generalSegment": {
+		"masterInformation": "Capt. Di Meglio",
+		"lastDischarge": "2026-02-28",
+		"arrivalSegment": {
+			"dateOfArrival": "2026-08-15",
+			"timeOfArrival": "13:00:00"
+		},
+		"departureSegment": {
+			"code": "CNTAC"
+		},
+		"destinationSegment": {
+			"code": "NGTIN"
+		},
+		"carrierSegment": {
+			"name": "GRIMALDI",
+			"address": "-",
+			"code": "-"
+		},
+		"transportSegment": {
+			"nameOfTransporter": "GRANDE ABIDJAN 0826",
+			"placeOfTransporter": "PALERMO",
+			"modeOfTransportSegment": {
+				"code": "1"
+			},
+			"nationalityOfTransportSegment": {
+				"code": "IT"
+			},
+			"transporterRegistrationSegment": {
+				"registrationNumber": "IMO9680712",
+				"registrationDate": " 2015-05-01"
+			}
+		},
+		"tonnageSegment": {
+			"grossTonnage": 13470463.00,
+			"netTonnage": 1
+		}
+	}
+}
