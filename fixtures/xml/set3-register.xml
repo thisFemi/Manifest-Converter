@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<eRegistrationRequest>
+<Identification>
+<Registry_number>602EZE</Registry_number>
+<Date>2026-01-23</Date>
+<Customs_office_code>05PN</Customs_office_code>
+</Identification>
+<Totals_segment>
+<Total_number_of_bols>130</Total_number_of_bols>
+<Total_number_of_containers>363</Total_number_of_containers>
+<Total_number_of_packages>7624</Total_number_of_packages>
+<Total_gross_mass>3728667.00</Total_gross_mass>
+</Totals_segment>
+</eRegistrationRequest>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<eRegistrationRequest>
+  <Identification>
+    <Registry_number>25304</Registry_number>
+    <Date>2026-01-20</Date>
+    <Customs_office_code>01TC</Customs_office_code>
+  </Identification>
+  <Totals_segment>
+    <Total_number_of_bols>57</Total_number_of_bols>
+    <Total_number_of_containers>0</Total_number_of_containers>
+    <Total_number_of_packages>13065</Total_number_of_packages>
+    <Total_gross_mass>35350.65</Total_gross_mass>
+  </Totals_segment>
+</eRegistrationRequest>

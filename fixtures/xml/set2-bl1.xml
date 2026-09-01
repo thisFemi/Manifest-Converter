@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TWM_BOL>
+  <Identification_segment>
+    <Registry_number>25304</Registry_number>
+    <Date>2026-01-20</Date>
+    <Bol_reference>BM25304XLAG014</Bol_reference>
+    <Customs_office_segment>
+      <Code>01TC</Code>
+    </Customs_office_segment>
+  </Identification_segment>
+  <Bol_specific_segment>
+    <Line_number>9</Line_number>
+    <Bol_Nature>23</Bol_Nature>
+    <Total_number_of_containers>0</Total_number_of_containers>
+    <Total_gross_mass_manifested>151.2</Total_gross_mass_manifested>
+    <Volume_in_cubic_meters>151.2</Volume_in_cubic_meters>
+    <Bol_type_segment><Code>BL</Code></Bol_type_segment>
+    <Exporter_segment>
+      <Name>SEAWALL ENTERPRISE LIMITED</Name>
+      <Address>ROOM 3516,VANKE CENTER,NO.2</Address>
+    </Exporter_segment>
+    <Consignee_segment>
+      <Name>MALINO INDUSTRIES LTD</Name>
+      <Address>SUITE 14B GODSWILL PLAZA BESIDE ACCESS</Address>
+    </Consignee_segment>
+    <Notify_segment>
+      <Name>MALINO INDUSTRIES LTD</Name>
+      <Address>SUITE 14B GODSWILL PLAZA BESIDE ACCESS</Address>
+    </Notify_segment>
+    <Place_of_loading_segment><Code>CNLYG</Code></Place_of_loading_segment>
+    <Place_of_unloading_segment><Code>NGTIN</Code></Place_of_unloading_segment>
+    <Packages_segment>
+      <Package_type_code>PK</Package_type_code>
+      <Number_of_packages>150</Number_of_packages>
+    </Packages_segment>
+    <Shipping_marks>CARGO</Shipping_marks>
+    <Goods_description>DEXTROSE ANHYDROUSFORM M NO: MF20250139049BANK APPROVED NO: BA07020253009409</Goods_description>
+    <Freight_segment><Currency>USD</Currency></Freight_segment>
+    <Operations_segment>
+      <Location_segment><Code></Code></Location_segment>
+    </Operations_segment>
+  </Bol_specific_segment>
+</TWM_BOL>

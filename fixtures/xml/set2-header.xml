@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TWM_Manifest>
+  <Identification_segment>
+    <Registry_number>25304</Registry_number>
+    <Date>2026-01-20</Date>
+    <Customs_office_segment>
+      <Code>01TC</Code>
+    </Customs_office_segment>
+  </Identification_segment>
+  <General_segment>
+    <Master_information/>
+    <Last_discharge/>
+    <Arrival_segment>
+      <Date_of_arrival>2026-01-20</Date_of_arrival>
+      <Time_of_arrival/>
+    </Arrival_segment>
+    <Departure_segment>
+      <Code>CNTXG</Code>
+    </Departure_segment>
+    <Destination_segment>
+      <Code>NGTIN</Code>
+    </Destination_segment>
+    <Carrier_segment>
+      <Code>ALRAINE</Code>
+      <Name/>
+      <Address/>
+    </Carrier_segment>
+    <Transport_segment>
+      <Name_of_transporter>BAO MING</Name_of_transporter>
+      <Place_of_transporter>CNLYG</Place_of_transporter>
+      <Mode_of_transport_segment>
+        <Code>1</Code>
+      </Mode_of_transport_segment>
+      <Nationality_of_transport_segment>
+        <Code>CN</Code>
+      </Nationality_of_transport_segment>
+      <Transporter_registration_segment>
+        <Registration_number>9592886</Registration_number>
+        <Registration_date/>
+      </Transporter_registration_segment>
+    </Transport_segment>
+    <Tonnage_segment>
+      <Gross_tonnage>32899</Gross_tonnage>
+      <Net_tonnage/>
+    </Tonnage_segment>
+  </General_segment>
+</TWM_Manifest>

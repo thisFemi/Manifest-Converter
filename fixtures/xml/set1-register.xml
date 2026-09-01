@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<eRegistrationRequest>
+<Identification>
+<Registry_number>125156</Registry_number>
+<Date>2025-12-07</Date>
+<Customs_office_code>05PN</Customs_office_code>
+</Identification>
+<Totals_segment>
+<Total_number_of_bols>53</Total_number_of_bols>
+<Total_number_of_containers>39</Total_number_of_containers>
+<Total_number_of_packages>229</Total_number_of_packages>
+<Total_gross_mass>884.09</Total_gross_mass>
+</Totals_segment>
+</eRegistrationRequest>

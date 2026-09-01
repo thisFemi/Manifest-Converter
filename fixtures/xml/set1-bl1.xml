@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<TWM_BOL>
+<Identification_segment>
+<Registry_number>125156</Registry_number>
+<Date>2025-12-07</Date>
+<Bol_reference>UALBHFLE1169F001</Bol_reference>
+<Customs_office_segment>
+<Code>05PN</Code>
+</Customs_office_segment>
+</Identification_segment>
+<Bol_specific_segment>
+<Line_number>2</Line_number>
+<Previous_document_reference/>
+<Bol_Nature>23</Bol_Nature>
+<Unique_carrier_reference/>
+<Total_number_of_containers>0</Total_number_of_containers>
+<Total_gross_mass_manifested>20.43</Total_gross_mass_manifested>
+<Volume_in_cubic_meters>36.28</Volume_in_cubic_meters>
+<Bol_type_segment>
+<Code>BL</Code>
+</Bol_type_segment>
+<Exporter_segment>
+<Code/>
+<Name>MEGADRILL C O  WELL WORLDWIDE </Name>
+<Address>15350 VANTAGE PARKWAY W, HOUSTON TX 77032, UNITED STATES </Address>
+</Exporter_segment>
+<Consignee_segment>
+<Code/>
+<Name>WORLDWIDE ENERGY SUPPLY CHAIN MANAG</Name>
+<Address>4 CHIEF NNADOKOYE STREET FORMERLY LANRE EBEGBUNE STREET OFF CHIVITA JUNCTION AJAO ESTATE LAGOS </Address>
+</Consignee_segment>
+<Notify_segment>
+<Code/>
+<Name>WORLDWIDE ENERGY SUPPLY CHAIN MANAG</Name>
+<Address>4 CHIEF NNADOKOYE STREET FORMERLY LANRE EBEGBUNE STREET OFF CHIVITA JUNCTION AJAO ESTATE LAGOS </Address>
+</Notify_segment>
+<Place_of_loading_segment>
+<Code>USHOU</Code>
+</Place_of_loading_segment>
+<Place_of_unloading_segment>
+<Code>NGONN</Code>
+</Place_of_unloading_segment>
+<Packages_segment>
+<Package_type_code>NE</Package_type_code>
+<Number_of_packages>2</Number_of_packages>
+</Packages_segment>
+<Shipping_marks/>
+<Goods_description>OILWELL SUPPLIES - REEL, 90X73X100-COMPRESSOR SKID, NON HARZ </Goods_description>
+<Freight_segment>
+<Value/>
+<Currency/>
+<Indicator_segment>
+<Code/>
+</Indicator_segment>
+</Freight_segment>
+<Customs_segment>
+<Value/>
+<Currency/>
+</Customs_segment>
+<Transport_segment>
+<Value/>
+<Currency/>
+</Transport_segment>
+<Insurance_segment>
+<Value/>
+<Currency/>
+</Insurance_segment>
+<Seals_segment>
+<Number_of_seals>1</Number_of_seals>
+<Marks_of_seals/>
+<Sealing_party_code/>
+</Seals_segment>
+<Information_part_a/>
+<Operations_segment>
+<Location_segment>
+<Code/>
+<Information/>
+</Location_segment>
+</Operations_segment>
+</Bol_specific_segment>
+</TWM_BOL>
