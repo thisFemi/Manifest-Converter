@@ -10,12 +10,18 @@ wrapped in JSON), **B'Odogwu** (NSW's native JSON manifest format), and
    (GovCBR has no arrival field at all, so this fills `arrivalSegment` in the
    output), and outputs a small `SEN.json` file since B'Odogwu has nowhere to
    store the `senReferenceNumber`.
-2. **B'Odogwu → GovCBR** (single upload) — asks for a **SEN** and a **TIN**
-   (`Submitter.ID`), plus an optional **NIMASA terminal agent code**
-   (defaults to `AGENT-BP001100`).
-3. **B'Odogwu (header file + one or more BL files, + optional Register.json)
-   → GovCBR** — merges the segments first, optionally cross-checks totals
-   against the Register file, then converts. Same SEN/TIN/NIMASA fields as above.
+2. **B'Odogwu → GovCBR** (single, multiple, or zipped JSON) — upload one
+   B'Odogwu manifest, several of them, or a `.zip` folder full of them (any
+   mix of `.json` files and `.zip` files is accepted). Each manifest is
+   converted independently against the same **SEN**, **TIN**
+   (`Submitter.ID`), and optional **NIMASA terminal agent code** (defaults
+   to `AGENT-BP001100`). With more than one manifest, results show as one
+   output file per manifest — downloadable individually or all zipped
+   together.
+3. **B'Odogwu (header file + one or more BL files — or a .zip of them, +
+   optional Register.json) → GovCBR** — merges the segments first,
+   optionally cross-checks totals against the Register file, then converts.
+   Same SEN/TIN/NIMASA fields as above.
 4. **Raw XML → B'Odogwu or GovCBR** — the featured section at the top of the
    page (most manifests arrive this way). For manifests received as raw
    B'Odogwu XML rather than JSON: `TWM_Manifest` (header), one or more

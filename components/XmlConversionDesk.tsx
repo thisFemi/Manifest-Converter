@@ -5,7 +5,7 @@ import FileSlot from './FileSlot';
 import Stamp from './Stamp';
 import WarningsPanel from './WarningsPanel';
 import ResultsPanel, { OutputFile } from './ResultsPanel';
-import { readXmlOrZipFiles } from '@/lib/client-files';
+import { readXmlOrZipFiles, sanitizeFilename, downloadFilesAsZip } from '@/lib/client-files';
 import { GovCbrAgentConfig } from '@/lib/types';
 
 interface ActionState {
@@ -16,10 +16,6 @@ interface ActionState {
 }
 
 const idle: ActionState = { busy: false, error: null, warnings: [], files: [] };
-
-function sanitizeFilename(s: string): string {
-  return (s || 'unnamed').replace(/[^a-zA-Z0-9_.-]+/g, '_');
-}
 
 function ActionResult({ state }: { state: ActionState }) {
   if (state.error) {
@@ -115,6 +111,9 @@ export default function XmlConversionDesk({
         return { filename: `BL_${sanitizeFilename(ref)}.json`, data: bl };
       });
       setBlsState({ busy: false, error: null, warnings: [], files });
+      if (files.length > 1) {
+        await downloadFilesAsZip(files, 'bls.zip');
+      }
     } catch (e: any) {
       setBlsState({ ...idle, error: e.message });
     }

@@ -5,16 +5,16 @@ import FileSlot from '@/components/FileSlot';
 import Stamp from '@/components/Stamp';
 import WarningsPanel from '@/components/WarningsPanel';
 import ResultsPanel, { OutputFile } from '@/components/ResultsPanel';
-import { readJsonFile } from '@/lib/client-files';
+import { readJsonFile, readJsonOrZipFiles, sanitizeFilename, downloadFilesAsZip } from '@/lib/client-files';
+import { smartMergeBodogwuUploads } from '@/lib/smart-merge';
 import { DEFAULT_AGENT_CONFIG, GovCbrAgentConfig } from '@/lib/types';
 import XmlConversionDesk from '@/components/XmlConversionDesk';
 
-type Mode = 'govcbr-to-bo' | 'bo-to-govcbr' | 'three-seg-to-govcbr';
+type Mode = 'govcbr-to-bo' | 'bo-to-govcbr';
 
 const MODES: { id: Mode; label: string; sub: string }[] = [
   { id: 'govcbr-to-bo', label: 'GovCBR → B\'Odogwu', sub: 'Single upload' },
-  { id: 'bo-to-govcbr', label: 'B\'Odogwu → GovCBR', sub: 'Single upload' },
-  { id: 'three-seg-to-govcbr', label: 'B\'Odogwu → GovCBR', sub: 'Header + BL segments' },
+  { id: 'bo-to-govcbr', label: 'B\'Odogwu → GovCBR', sub: 'Any mix — full manifests, or header + BL(+register) segments' },
 ];
 
 export default function Home() {
@@ -31,21 +31,16 @@ export default function Home() {
   const [arrivalDate, setArrivalDate] = useState('');
   const [arrivalTime, setArrivalTime] = useState('');
 
-  // mode: B'Odogwu (single) -> GovCBR
+  // mode: B'Odogwu -> GovCBR. Files can be complete manifests, header
+  // files, BL files (single or arrays), and/or a register file, uploaded
+  // individually, in bulk, or zipped, in any mix — smartMergeBodogwuUploads
+  // figures out how many manifests are actually present.
   const [boFile, setBoFile] = useState<File[]>([]);
   const [sen1, setSen1] = useState('');
   const [tin1, setTin1] = useState('');
   const [indicator1, setIndicator1] = useState<'I' | 'O'>('I');
 
-  // mode: 3-segment B'Odogwu -> GovCBR
-  const [headerFile, setHeaderFile] = useState<File[]>([]);
-  const [blFiles, setBlFiles] = useState<File[]>([]);
-  const [registerFile, setRegisterFile] = useState<File[]>([]);
-  const [sen2, setSen2] = useState('');
-  const [tin2, setTin2] = useState('');
-  const [indicator2, setIndicator2] = useState<'I' | 'O'>('I');
-
-  // advanced agent config, shared by all three B'Odogwu -> GovCBR modes.
+  // advanced agent config, shared by both B'Odogwu -> GovCBR flows.
   // NIMASA agent code is surfaced as its own prominent field (below), so
   // this panel covers the remaining fields with no B'Odogwu source.
   const [showConfig, setShowConfig] = useState(false);
@@ -57,6 +52,7 @@ export default function Home() {
     setWarnings([]);
     setOutputFiles([]);
   }
+
 
   async function handleGovcbrToBo() {
     resetResult();
@@ -74,10 +70,11 @@ export default function Home() {
       });
       const json = await res.json();
       if (!res.ok) throw new Error(json.error || 'Conversion failed.');
-      setOutputFiles([
+      const files: OutputFile[] = [
         { filename: 'bodogwu.json', data: json.bodogwu },
         { filename: 'SEN.json', data: json.sen },
-      ]);
+      ];
+      setOutputFiles(files);
       setZipName('bodogwu-and-sen.zip');
       setWarnings(json.warnings || []);
     } catch (e: any) {
@@ -90,7 +87,9 @@ export default function Home() {
   async function handleBoToGovcbr() {
     resetResult();
     if (boFile.length === 0) {
-      setError('Upload a B\'Odogwu file first.');
+      setError(
+        "Upload B'Odogwu file(s) first — a full manifest, a header file plus BL file(s) (and optional register), or a mix of these, as .json or .zip."
+      );
       return;
     }
     if (!sen1.trim()) {
@@ -103,70 +102,51 @@ export default function Home() {
     }
     setBusy(true);
     try {
-      const bodogwu = await readJsonFile(boFile[0]);
-      const res = await fetch('/api/convert/bodogwu-to-govcbr', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          bodogwu,
-          sen: sen1,
-          tin: tin1,
-          indicator: indicator1,
-          journeyId: journeyId || undefined,
-          config,
-        }),
-      });
-      const json = await res.json();
-      if (!res.ok) throw new Error(json.error || 'Conversion failed.');
-      setOutputFiles([{ filename: 'govcbr.json', data: json.data }]);
-      setZipName('govcbr.zip');
-      setWarnings(json.warnings || []);
-    } catch (e: any) {
-      setError(e.message);
-    } finally {
-      setBusy(false);
-    }
-  }
+      const items = await readJsonOrZipFiles(boFile);
+      const { manifests, warnings: mergeWarnings } = smartMergeBodogwuUploads(items);
 
-  async function handleThreeSegToGovcbr() {
-    resetResult();
-    if (headerFile.length === 0 || blFiles.length === 0) {
-      setError('Upload the manifest header file and at least one BL file.');
-      return;
-    }
-    if (!sen2.trim()) {
-      setError('SEN is required to produce a GovCBR file.');
-      return;
-    }
-    if (!tin2.trim()) {
-      setError('TIN is required to produce a GovCBR file.');
-      return;
-    }
-    setBusy(true);
-    try {
-      const header = await readJsonFile(headerFile[0]);
-      const blFilesParsed = await Promise.all(blFiles.map((f) => readJsonFile(f)));
-      const register = registerFile.length > 0 ? await readJsonFile(registerFile[0]) : undefined;
+      if (manifests.length === 0) {
+        throw new Error(
+          [
+            "Couldn't find a convertible B'Odogwu manifest in what was uploaded.",
+            ...mergeWarnings,
+          ].join(' ')
+        );
+      }
 
-      const res = await fetch('/api/convert/three-segment-to-govcbr', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          header,
-          blFiles: blFilesParsed,
-          register,
-          sen: sen2,
-          tin: tin2,
-          indicator: indicator2,
-          journeyId: journeyId || undefined,
-          config,
-        }),
-      });
-      const json = await res.json();
-      if (!res.ok) throw new Error(json.error || 'Conversion failed.');
-      setOutputFiles([{ filename: 'govcbr.json', data: json.data }]);
+      const batch = manifests.length > 1;
+      const files: OutputFile[] = [];
+      const allWarnings: string[] = [...mergeWarnings];
+
+      for (const m of manifests) {
+        const res = await fetch('/api/convert/bodogwu-to-govcbr', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            bodogwu: { manifestHdr: m.manifestHdr, blSegments: m.blSegments },
+            sen: sen1,
+            tin: tin1,
+            indicator: indicator1,
+            journeyId: journeyId || undefined,
+            config,
+          }),
+        });
+        const json = await res.json();
+        if (!res.ok) {
+          throw new Error(batch ? `"${m.name}": ${json.error || 'Conversion failed.'}` : json.error || 'Conversion failed.');
+        }
+        files.push({ filename: batch ? `govcbr_${sanitizeFilename(m.name)}.json` : 'govcbr.json', data: json.data });
+        for (const w of json.warnings || []) {
+          allWarnings.push(batch ? `[${m.name}] ${w}` : w);
+        }
+      }
+
+      setOutputFiles(files);
       setZipName('govcbr.zip');
-      setWarnings(json.warnings || []);
+      setWarnings(allWarnings);
+      if (files.length > 1) {
+        await downloadFilesAsZip(files, 'govcbr.zip');
+      }
     } catch (e: any) {
       setError(e.message);
     } finally {
@@ -270,11 +250,19 @@ export default function Home() {
           {mode === 'bo-to-govcbr' && (
             <>
               <FileSlot
-                label="B'Odogwu file"
-                hint="manifestHdr + blSegments"
+                label="B'Odogwu file(s)"
+                hint="a full manifest, OR header + BL file(s) (+ optional register) — mix freely, single, multiple, or a .zip"
+                accept=".json,.zip"
+                multiple
                 files={boFile}
                 onChange={setBoFile}
               />
+              <p className="text-xs text-slate -mt-3">
+                Upload whatever you have — one complete B&apos;Odogwu manifest, a header file plus one or more BL
+                files (optionally with a Register.json), several manifests at once, or a .zip of any of these.
+                The converter figures out how many manifests are actually present (matching headers to BLs by
+                registry number when there&apos;s more than one) and converts each to its own GovCBR output.
+              </p>
               <SenTinFields sen={sen1} setSen={setSen1} tin={tin1} setTin={setTin1} indicator={indicator1} setIndicator={setIndicator1} />
               <NimasaField config={config} setConfig={setConfig} />
               <AdvancedConfig
@@ -291,47 +279,6 @@ export default function Home() {
                 className="w-full rounded-sm bg-ink text-paper py-2.5 text-sm font-medium hover:bg-ink-soft disabled:opacity-50 transition-colors"
               >
                 {busy ? 'Converting…' : 'Convert to GovCBR'}
-              </button>
-            </>
-          )}
-
-          {mode === 'three-seg-to-govcbr' && (
-            <>
-              <FileSlot
-                label="Manifest header file"
-                hint="e.g. GRIMALDI-MAN.json"
-                files={headerFile}
-                onChange={setHeaderFile}
-              />
-              <FileSlot
-                label="BL files"
-                hint="one or more arrays of BL objects"
-                multiple
-                files={blFiles}
-                onChange={setBlFiles}
-              />
-              <FileSlot
-                label="Register file"
-                hint="optional — used to cross-check totals"
-                files={registerFile}
-                onChange={setRegisterFile}
-              />
-              <SenTinFields sen={sen2} setSen={setSen2} tin={tin2} setTin={setTin2} indicator={indicator2} setIndicator={setIndicator2} />
-              <NimasaField config={config} setConfig={setConfig} />
-              <AdvancedConfig
-                show={showConfig}
-                setShow={setShowConfig}
-                config={config}
-                setConfig={setConfig}
-                journeyId={journeyId}
-                setJourneyId={setJourneyId}
-              />
-              <button
-                onClick={handleThreeSegToGovcbr}
-                disabled={busy}
-                className="w-full rounded-sm bg-ink text-paper py-2.5 text-sm font-medium hover:bg-ink-soft disabled:opacity-50 transition-colors"
-              >
-                {busy ? 'Converting…' : 'Merge & convert to GovCBR'}
               </button>
             </>
           )}
