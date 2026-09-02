@@ -7,6 +7,7 @@ export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
     const {
+      part,
       headerXml,
       blXmls,
       registerXml,
@@ -17,8 +18,11 @@ export async function POST(req: NextRequest) {
       journeyId,
       config,
     } = body as {
-      headerXml: string;
-      blXmls: string[];
+      // 'header' | 'bls' | 'register' convert that segment alone, independent
+      // of the others. Omitted (or 'merge') runs the full combined flow.
+      part?: 'header' | 'bls' | 'register' | 'merge';
+      headerXml?: string;
+      blXmls?: string[];
       registerXml?: string;
       target: 'bodogwu' | 'govcbr';
       sen?: string;
@@ -28,6 +32,45 @@ export async function POST(req: NextRequest) {
       config?: Partial<GovCbrAgentConfig>;
     };
 
+    // ---- independent, single-segment conversions ----
+    if (part === 'header') {
+      if (!headerXml) {
+        return NextResponse.json({ error: 'A manifest header XML file is required.' }, { status: 400 });
+      }
+      try {
+        return NextResponse.json({ header: parseHeaderXml(headerXml) });
+      } catch (e: any) {
+        return NextResponse.json({ error: `Manifest header: ${e.message}` }, { status: 400 });
+      }
+    }
+
+    if (part === 'bls') {
+      if (!Array.isArray(blXmls) || blXmls.length === 0) {
+        return NextResponse.json({ error: 'At least one BL XML file is required.' }, { status: 400 });
+      }
+      const bls = [];
+      for (let i = 0; i < blXmls.length; i++) {
+        try {
+          bls.push(parseBlXml(blXmls[i]));
+        } catch (e: any) {
+          return NextResponse.json({ error: `BL file #${i + 1}: ${e.message}` }, { status: 400 });
+        }
+      }
+      return NextResponse.json({ bls });
+    }
+
+    if (part === 'register') {
+      if (!registerXml) {
+        return NextResponse.json({ error: 'A register XML file is required.' }, { status: 400 });
+      }
+      try {
+        return NextResponse.json({ register: parseRegisterXml(registerXml) });
+      } catch (e: any) {
+        return NextResponse.json({ error: `Register: ${e.message}` }, { status: 400 });
+      }
+    }
+
+    // ---- full merge flow (header + BLs [+ register] -> B'Odogwu or GovCBR) ----
     if (!headerXml) {
       return NextResponse.json({ error: 'A manifest header XML file is required.' }, { status: 400 });
     }

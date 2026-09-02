@@ -16,11 +16,17 @@ wrapped in JSON), **B'Odogwu** (NSW's native JSON manifest format), and
 3. **B'Odogwu (header file + one or more BL files, + optional Register.json)
    → GovCBR** — merges the segments first, optionally cross-checks totals
    against the Register file, then converts. Same SEN/TIN/NIMASA fields as above.
-4. **Raw XML → B'Odogwu or GovCBR** — for manifests received as raw B'Odogwu
-   XML rather than JSON: `TWM_Manifest` (header), one or more `TWM_BOL` files
-   (or a `.zip` folder of them), and an optional `eRegistrationRequest`
-   (register/totals). Pick either output format; GovCBR output asks for the
-   same SEN/TIN/NIMASA fields as mode 3.
+4. **Raw XML → B'Odogwu or GovCBR** — the featured section at the top of the
+   page (most manifests arrive this way). For manifests received as raw
+   B'Odogwu XML rather than JSON: `TWM_Manifest` (header), one or more
+   `TWM_BOL` files (or a `.zip` folder of them), and an optional
+   `eRegistrationRequest` (register/totals). Each piece — header, BLs,
+   register — converts and downloads **independently**: convert just the
+   header, or just the BLs (one output file per BL, individually downloadable
+   or all zipped together), or just the register, without needing the other
+   files. Or upload all of them and use the merge flow below to combine into
+   one B'Odogwu manifest or straight to GovCBR (same SEN/TIN/NIMASA fields as
+   mode 3).
 
 Every conversion result shows inline in the page — expand any output file to
 preview its JSON, download it individually, or use **Download all** (top of
@@ -138,6 +144,46 @@ element's `<Number>` tag is mapped to `numberOfPackages` (matching the JSON
 schema's field at that same struct position) — it may actually represent a
 container sequence number in some source systems rather than a package
 count. Flag if your NSW submissions need that split out differently.
+
+### Corrections from cross-checking another converter's output
+
+A batch of 5 real BLs was run through this tool and through another
+converter, and the outputs compared field-by-field. Three real fixes came
+out of that and are now applied:
+
+- **`bolTypeSegment.code`**: raw XML's generic `"BL"` code now maps to
+  `"House"` (was previously passed through literally as `"BL"`). `"MBL"`/`"Master"`
+  map to `"Master"`. This matched the reference converter on every one of the
+  5 sample BLs.
+- **`items[]` synthesis**: a BL with no `<Container>` and no explicit `<Item>`
+  elements now gets one synthesized item from its own goods description and
+  package count, instead of an empty `items: []`. Matches the reference
+  converter's behavior for loose/non-containerized cargo.
+- **`containers[].numberOfPackages`**: now parsed as a number (was a string),
+  matching the reference converter and the field's type elsewhere in the schema.
+
+Two more differences showed up that were **not** changed, because I don't
+have enough information to know which behavior is actually correct:
+
+- **`freightSegment`/`customsSegment`/`transportSegment`/`insuranceSegment`
+  values**: this tool defaults empty/missing source fields to `0` and `""`;
+  the reference converter used `null`. Both are defensible — `0` is what the
+  rest of this codebase already assumes (including the GovCBR conversion
+  path), but `null` is arguably more honest about "not provided" vs.
+  "explicitly zero." If NSW's schema expects `null` here, say so and I'll
+  change it (and the TypeScript types) throughout.
+- **`volumeInCubicMeters`**: the reference converter returned `null` for
+  every one of the 5 BLs, while this tool returned distinct, specific decimal
+  values (40.68, 2.35, 38.51, 38, 38) for each. Since those numbers vary
+  per-BL and match what you'd expect from real cargo data, this looks like a
+  bug in the *other* converter (e.g. looking up the wrong XML tag) rather
+  than something to fix here — but I haven't seen that converter's source to
+  confirm.
+
+Trailing whitespace in names/addresses/descriptions (present in the raw XML,
+e.g. `"3T OIL GAS SERVICES LLC "`) is trimmed by this tool's parser. The
+reference converter preserves it. This was left as-is — trimmed data is
+the more correct behavior, not a bug.
 
 **Please review this mapping against actual NSW/GovCBR validation rules**
 before this goes anywhere near production — I built it from the sample files

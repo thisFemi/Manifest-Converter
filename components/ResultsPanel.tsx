@@ -46,7 +46,7 @@ export default function ResultsPanel({ files, zipName }: { files: OutputFile[]; 
           onClick={() => downloadAllAsZip(files, zipName)}
           className="w-full rounded-sm bg-brass-deep text-paper py-2.5 text-sm font-medium hover:opacity-90 transition-opacity"
         >
-          ⬇ Download all ({files.length} files, .zip)
+          Download all ({files.length} files, .zip)
         </button>
       )}
 

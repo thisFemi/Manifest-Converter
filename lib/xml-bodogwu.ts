@@ -32,6 +32,19 @@ function num(v: unknown): number {
   return isNaN(n) ? 0 : n;
 }
 
+// Cross-checked against a real batch of TWM_BOL files where every raw XML
+// record used the generic code "BL" — a reference converter consistently
+// mapped that to "House" (never "Master"), which lines up with these being
+// individual house bills consolidated under one carrier's master. "MBL" /
+// "Master" pass through as "Master"; anything else passes through as-is
+// rather than being guessed at.
+function mapBolTypeCode(raw: string): string {
+  const upper = raw.trim().toUpperCase();
+  if (upper === 'BL') return 'House';
+  if (upper === 'MBL' || upper === 'MASTER') return 'Master';
+  return raw;
+}
+
 export function parseHeaderXml(xml: string): BodogwuHeader {
   const parsed = parser.parse(xml);
   const root = parsed.TWM_Manifest;
@@ -91,7 +104,7 @@ export function parseHeaderXml(xml: string): BodogwuHeader {
 function parseContainer(c: any): BodogwuContainer {
   return {
     reference: str(c.Reference),
-    numberOfPackages: str(c.Number),
+    numberOfPackages: num(c.Number),
     type: str(c.Type),
     emptyFull: str(c.Empty_full),
     seals: str(c.Seals),
@@ -132,7 +145,22 @@ export function parseBlXml(xml: string): BodogwuBl {
   const containers: BodogwuContainer[] = Array.isArray(root.Container)
     ? root.Container.map(parseContainer)
     : [];
-  const items: BodogwuItem[] = Array.isArray(root.Item) ? root.Item.map(parseItem) : [];
+  let items: BodogwuItem[] = Array.isArray(root.Item) ? root.Item.map(parseItem) : [];
+
+  // Loose/non-containerized cargo (no <Container>, no explicit <Item>) still
+  // represents one logical item — synthesize it from the BL's own goods
+  // description and package count, matching how a reference converter
+  // consistently handled the same shape of source data.
+  if (items.length === 0 && containers.length === 0) {
+    items = [
+      {
+        itemNumber: 1,
+        itemDescription: str(spec.Goods_description),
+        numberOfPackages: num(packages.Number_of_packages),
+        packageTypeCode: str(packages.Package_type_code),
+      },
+    ];
+  }
 
   return {
     identificationSegment: {
@@ -150,7 +178,7 @@ export function parseBlXml(xml: string): BodogwuBl {
       totalGrossMassManifested: num(spec.Total_gross_mass_manifested),
       volumeInCubicMeters: num(spec.Volume_in_cubic_meters),
       numberOfSubBols: num(spec.Number_of_sub_bols),
-      bolTypeSegment: { code: str(spec.Bol_type_segment?.Code) },
+      bolTypeSegment: { code: mapBolTypeCode(str(spec.Bol_type_segment?.Code)) },
       exporterSegment: {
         name: str(exporter.Name),
         address: str(exporter.Address),

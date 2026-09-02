@@ -5,16 +5,16 @@ import FileSlot from '@/components/FileSlot';
 import Stamp from '@/components/Stamp';
 import WarningsPanel from '@/components/WarningsPanel';
 import ResultsPanel, { OutputFile } from '@/components/ResultsPanel';
-import { readJsonFile, readXmlOrZipFiles } from '@/lib/client-files';
+import { readJsonFile } from '@/lib/client-files';
 import { DEFAULT_AGENT_CONFIG, GovCbrAgentConfig } from '@/lib/types';
+import XmlConversionDesk from '@/components/XmlConversionDesk';
 
-type Mode = 'govcbr-to-bo' | 'bo-to-govcbr' | 'three-seg-to-govcbr' | 'xml-to-manifest';
+type Mode = 'govcbr-to-bo' | 'bo-to-govcbr' | 'three-seg-to-govcbr';
 
 const MODES: { id: Mode; label: string; sub: string }[] = [
   { id: 'govcbr-to-bo', label: 'GovCBR → B\'Odogwu', sub: 'Single upload' },
   { id: 'bo-to-govcbr', label: 'B\'Odogwu → GovCBR', sub: 'Single upload' },
   { id: 'three-seg-to-govcbr', label: 'B\'Odogwu → GovCBR', sub: 'Header + BL segments' },
-  { id: 'xml-to-manifest', label: 'Raw XML → …', sub: 'Man/BL/Register XML' },
 ];
 
 export default function Home() {
@@ -51,15 +51,6 @@ export default function Home() {
   const [showConfig, setShowConfig] = useState(false);
   const [config, setConfig] = useState<GovCbrAgentConfig>(DEFAULT_AGENT_CONFIG);
   const [journeyId, setJourneyId] = useState('');
-
-  // mode: raw XML (TWM_Manifest / TWM_BOL / eRegistrationRequest) -> B'Odogwu or GovCBR
-  const [xmlHeaderFile, setXmlHeaderFile] = useState<File[]>([]);
-  const [xmlBlFiles, setXmlBlFiles] = useState<File[]>([]);
-  const [xmlRegisterFile, setXmlRegisterFile] = useState<File[]>([]);
-  const [xmlTarget, setXmlTarget] = useState<'bodogwu' | 'govcbr'>('bodogwu');
-  const [xmlSen, setXmlSen] = useState('');
-  const [xmlTin, setXmlTin] = useState('');
-  const [xmlIndicator, setXmlIndicator] = useState<'I' | 'O'>('I');
 
   function resetResult() {
     setError(null);
@@ -183,65 +174,10 @@ export default function Home() {
     }
   }
 
-  async function handleXmlConvert() {
-    resetResult();
-    if (xmlHeaderFile.length === 0 || xmlBlFiles.length === 0) {
-      setError('Upload the manifest header XML and at least one BL XML (or a zip of them).');
-      return;
-    }
-    if (xmlTarget === 'govcbr') {
-      if (!xmlSen.trim()) {
-        setError('SEN is required to produce a GovCBR file.');
-        return;
-      }
-      if (!xmlTin.trim()) {
-        setError('TIN is required to produce a GovCBR file.');
-        return;
-      }
-    }
-    setBusy(true);
-    try {
-      const [headerXml] = await readXmlOrZipFiles(xmlHeaderFile);
-      const blXmls = await readXmlOrZipFiles(xmlBlFiles);
-      const registerXmls = xmlRegisterFile.length > 0 ? await readXmlOrZipFiles(xmlRegisterFile) : [];
-
-      const res = await fetch('/api/convert/xml-to-manifest', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          headerXml,
-          blXmls,
-          registerXml: registerXmls[0],
-          target: xmlTarget,
-          sen: xmlTarget === 'govcbr' ? xmlSen : undefined,
-          tin: xmlTarget === 'govcbr' ? xmlTin : undefined,
-          indicator: xmlIndicator,
-          journeyId: journeyId || undefined,
-          config,
-        }),
-      });
-      const json = await res.json();
-      if (!res.ok) throw new Error(json.error || 'Conversion failed.');
-
-      if (xmlTarget === 'bodogwu') {
-        setOutputFiles([{ filename: 'bodogwu.json', data: json.bodogwu }]);
-        setZipName('bodogwu.zip');
-      } else {
-        setOutputFiles([{ filename: 'govcbr.json', data: json.data }]);
-        setZipName('govcbr.zip');
-      }
-      setWarnings(json.warnings || []);
-    } catch (e: any) {
-      setError(e.message);
-    } finally {
-      setBusy(false);
-    }
-  }
-
   return (
     <div className="min-h-screen">
       <header className="border-b border-paper-line bg-ink text-paper">
-        <div className="mx-auto max-w-4xl px-6 py-5 flex items-center justify-between">
+        <div className="mx-auto max-w-6xl px-6 py-5 flex items-center justify-between">
           <div>
             <p className="text-xs uppercase tracking-[0.2em] text-brass">National Single Window</p>
             <h1 className="font-display text-xl font-semibold">Manifest Conversion Desk</h1>
@@ -250,8 +186,23 @@ export default function Home() {
         </div>
       </header>
 
-      <main className="mx-auto max-w-4xl px-6 py-8">
-        <div className="flex gap-1 mb-6">
+      <main className="mx-auto max-w-6xl px-6 py-8">
+        <XmlConversionDesk
+          config={config}
+          setConfig={setConfig}
+          journeyId={journeyId}
+          setJourneyId={setJourneyId}
+          showConfig={showConfig}
+          setShowConfig={setShowConfig}
+        />
+
+        <div>
+          <p className="text-xs uppercase tracking-[0.2em] text-slate font-medium mb-2 px-1">
+            Already have B&apos;Odogwu or GovCBR as JSON?
+          </p>
+        </div>
+
+        <div className="flex gap-1 mb-6 max-w-4xl">
           {MODES.map((m) => (
             <button
               key={m.id}
@@ -271,7 +222,7 @@ export default function Home() {
           ))}
         </div>
 
-        <div className="ticket rounded-sm rounded-tl-none p-6 space-y-6">
+        <div className="ticket rounded-sm rounded-tl-none p-6 space-y-6 max-w-4xl">
           {mode === 'govcbr-to-bo' && (
             <>
               <FileSlot
@@ -381,88 +332,6 @@ export default function Home() {
                 className="w-full rounded-sm bg-ink text-paper py-2.5 text-sm font-medium hover:bg-ink-soft disabled:opacity-50 transition-colors"
               >
                 {busy ? 'Converting…' : 'Merge & convert to GovCBR'}
-              </button>
-            </>
-          )}
-
-          {mode === 'xml-to-manifest' && (
-            <>
-              <p className="text-xs text-slate -mt-1">
-                For manifests received as raw B&apos;Odogwu XML — <span className="data-field">TWM_Manifest</span> (header),{' '}
-                <span className="data-field">TWM_BOL</span> (one file per BL, or a .zip of them), and an optional{' '}
-                <span className="data-field">eRegistrationRequest</span> (register/totals).
-              </p>
-              <FileSlot
-                label="Manifest header XML"
-                hint="TWM_Manifest — one file"
-                accept=".xml"
-                files={xmlHeaderFile}
-                onChange={setXmlHeaderFile}
-              />
-              <FileSlot
-                label="BL XML files"
-                hint="TWM_BOL — .xml files, or a .zip of them"
-                accept=".xml,.zip"
-                multiple
-                files={xmlBlFiles}
-                onChange={setXmlBlFiles}
-              />
-              <FileSlot
-                label="Register XML"
-                hint="eRegistrationRequest — optional, used to cross-check totals"
-                accept=".xml"
-                files={xmlRegisterFile}
-                onChange={setXmlRegisterFile}
-              />
-
-              <div>
-                <label className="block text-sm font-medium text-ink-soft mb-1.5">Convert to</label>
-                <div className="flex gap-2">
-                  {(['bodogwu', 'govcbr'] as const).map((t) => (
-                    <button
-                      key={t}
-                      type="button"
-                      onClick={() => setXmlTarget(t)}
-                      className={`flex-1 rounded-sm border px-3 py-2 text-sm font-medium transition-colors ${
-                        xmlTarget === t
-                          ? 'border-brass bg-brass/10 text-ink'
-                          : 'border-paper-line text-slate hover:border-brass/60'
-                      }`}
-                    >
-                      {t === 'bodogwu' ? "B'Odogwu (JSON)" : 'GovCBR'}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {xmlTarget === 'govcbr' && (
-                <>
-                  <SenTinFields
-                    sen={xmlSen}
-                    setSen={setXmlSen}
-                    tin={xmlTin}
-                    setTin={setXmlTin}
-                    indicator={xmlIndicator}
-                    setIndicator={setXmlIndicator}
-                  />
-                  <NimasaField config={config} setConfig={setConfig} />
-                  <AdvancedConfig
-                    show={showConfig}
-                    setShow={setShowConfig}
-                    config={config}
-                    setConfig={setConfig}
-                    journeyId={journeyId}
-                    setJourneyId={setJourneyId}
-                  />
-                </>
-              )}
-
-              <button
-                onClick={handleXmlConvert}
-                disabled={busy}
-                className="w-full rounded-sm bg-ink text-paper py-2.5 text-sm font-medium hover:bg-ink-soft disabled:opacity-50 transition-colors"
-              >
-                {busy ? 'Converting…' : xmlTarget === 'bodogwu' ? 'Convert to B\'Odogwu' : 'Merge & convert to GovCBR'}
               </button>
             </>
           )}
