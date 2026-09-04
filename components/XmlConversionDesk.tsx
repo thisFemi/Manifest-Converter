@@ -338,7 +338,7 @@ export default function XmlConversionDesk({
                 placeholder="AGENT-BP001100"
                 className="data-field w-full rounded-sm border border-paper-line bg-white px-3 py-2 text-sm focus:outline-none focus:border-brass"
               />
-              <p className="text-xs text-slate mt-1">Optional — defaults to AGENT-BP001100.</p>
+              <p className="text-xs text-slate mt-1">Optional — leave blank if no terminal agent code applies.</p>
             </div>
             <div>
               <button

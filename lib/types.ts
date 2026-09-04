@@ -142,7 +142,7 @@ export const DEFAULT_AGENT_CONFIG: GovCbrAgentConfig = {
   statusCode: '3',
   typeCode: 'M',
   rotationNo: '1',
-  nimasaTermAgtCode: 'AGENT-BP001100',
+  nimasaTermAgtCode: '',
   containerCode: '68',
   actionCode: '1',
   purpose: 'PERSONAL',

@@ -335,7 +335,7 @@ function SenTinFields({
           type="text"
           value={tin}
           onChange={(e) => setTin(e.target.value)}
-          placeholder="e.g. 01313714-0001"
+          placeholder="e.g. 0000094-0001"
           className="data-field w-full rounded-sm border border-paper-line bg-white px-3 py-2 text-sm focus:outline-none focus:border-brass"
         />
       </div>
@@ -368,10 +368,10 @@ function NimasaField({
         type="text"
         value={config.nimasaTermAgtCode}
         onChange={(e) => setConfig({ ...config, nimasaTermAgtCode: e.target.value })}
-        placeholder="AGENT-BP001100"
+        placeholder="e.g AGENT-BP001100"
         className="data-field w-full rounded-sm border border-paper-line bg-white px-3 py-2 text-sm focus:outline-none focus:border-brass"
       />
-      <p className="text-xs text-slate mt-1">Optional — defaults to AGENT-BP001100.</p>
+      
     </div>
   );
 }

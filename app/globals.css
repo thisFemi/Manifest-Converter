@@ -41,6 +41,14 @@ body {
   background-attachment: local;
 }
 
+.text-xs {
+  font-size: 0.8125rem;
+}
+
+.text-sm {
+  font-size: 0.9375rem;
+}
+
 .ticket {
   background: #fffdf8;
   border: 1px solid var(--paper-line);
