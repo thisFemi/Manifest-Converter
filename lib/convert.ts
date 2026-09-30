@@ -41,6 +41,55 @@ function formatAmount(value: number | undefined | null, min = 0.01): string {
   return n.toFixed(2);
 }
 
+// Weight measures (GoodsMeasure.GrossMassMeasure, TransportEquipmentMeasure.
+// TareWeightMeasure, etc.) are unitCode="KGM" and hit the same
+// minInclusive="0.01" constraint as money fields once a source value is
+// missing or zero — floor-clamp the same way.
+function formatWeight(value: number | undefined | null, min = 0.01): number {
+  return typeof value === 'number' && isFinite(value) && value > 0 ? value : min;
+}
+
+// TransportContractDocument.TypeCode (TransportDocumentTypeCodeType) expects
+// a UN/EDIFACT 1001 "Document/message name, coded" value — B'Odogwu's
+// bolTypeSegment.code carries the spelled-out word ("House"/"Master")
+// instead, and passing that word straight through is what NSW's schema was
+// rejecting. The NSW EIS Sea Manifest guide (Consignment/
+// TransportContractDocument section) confirms "704" = Master Bill of
+// Lading; it does not document a code for House BLs anywhere in that
+// section, so that case falls back to a flagged interim value rather than
+// a guessed code presented as fact.
+const BOL_TYPE_EDIFACT_1001_CODE: Record<string, string> = {
+  MASTER: '704', // confirmed by the NSW EIS Sea Manifest guide
+};
+
+function resolveBolTypeCode(
+  rawCode: string | undefined,
+  fallback: string,
+  blReference: string,
+  warnings: string[]
+): string {
+  const trimmed = (rawCode || '').trim();
+  if (trimmed.length === 0) return fallback;
+
+  const mapped = BOL_TYPE_EDIFACT_1001_CODE[trimmed.toUpperCase()];
+  if (mapped) return mapped;
+
+  const interim = trimmed.charAt(0).toUpperCase();
+  warnings.push(
+    `BL "${blReference}": bolTypeSegment.code "${trimmed}" has no confirmed NSW EDIFACT 1001 TypeCode ("Master" -> "704" is the only mapping documented in the EIS Sea Manifest guide) — used "${interim}" as an interim TransportContractDocument.TypeCode. Confirm the correct code before submitting this declaration.`
+  );
+  return interim;
+}
+
+// Container/equipment IDs follow the ISO 6346 shipping-container number
+// format (4 letters + 7 digits, e.g. "PCIU6143333"). When no container
+// reference was supplied in the BL's `containers` array, use a placeholder
+// rather than silently falling back to unrelated free text.
+function equipmentIdOrPlaceholder(value: string | undefined): string {
+  const trimmed = (value || '').trim();
+  return trimmed.length > 0 ? trimmed : 'NA';
+}
+
 // A note attached to the conversion result so the shipping-line ops team can
 // see which fields were best-effort / defaulted rather than a direct 1:1
 // mapping from the source document. Nothing here blocks the conversion —
@@ -88,9 +137,9 @@ export function bodogwuToGovCbr(
     // A BL is "containerized" if it has a container entry with a type code;
     // otherwise (e.g. vehicle/RoRo cargo) we fall back to the items[] entry.
     const isContainerized = Boolean(container?.type);
-    const equipmentId = isContainerized
-      ? container?.reference || ''
-      : container?.reference || item?.itemDescription || '';
+    const equipmentId = equipmentIdOrPlaceholder(
+      isContainerized ? container?.reference : container?.reference || item?.itemDescription
+    );
 
     const additionalInformation: Record<string, unknown>[] = [
       {
@@ -132,7 +181,7 @@ export function bodogwuToGovCbr(
           RateAmount: { '@_currencyID': spec.freightSegment.currency || 'USD', '#text': formatAmount(spec.freightSegment.value) },
         },
         GoodsMeasure: {
-          GrossMassMeasure: { '@_unitCode': 'KGM', '#text': spec.totalGrossMassManifested },
+          GrossMassMeasure: { '@_unitCode': 'KGM', '#text': formatWeight(spec.totalGrossMassManifested) },
           NetVolumeMeasure: spec.volumeInCubicMeters,
         },
         Packaging: {
@@ -150,28 +199,33 @@ export function bodogwuToGovCbr(
         spec.exporterSegment.code
       ),
       DeliveryDestination: { ID: spec.placeOfUnloadingSegment.code },
-      GoodsReceiptPlace: { Name: '' },
+      GoodsReceiptPlace: { Name: '-' },
       GovernmentProcedure: { CurrentCode: spec.bolNature },
       LoadingLocation: { ID: spec.placeOfLoadingSegment.code },
       NotifyParty: partyToGovCbr(spec.notifySegment.name, spec.notifySegment.address),
       TransportContractDocument: {
         ID: bl.identificationSegment.bolReference,
-        TypeCode: spec.bolTypeSegment.code || config.transportContractTypeCode,
+        TypeCode: resolveBolTypeCode(
+          spec.bolTypeSegment.code,
+          config.transportContractTypeCode,
+          bl.identificationSegment.bolReference,
+          warnings
+        ),
       },
       TransportEquipment: {
         SequenceNumeric: 1,
-        CharacteristicCode: container?.type || '',
-        FullnessCode: container?.emptyFull || '',
+        CharacteristicCode: container?.type || '-',
+        FullnessCode: container?.emptyFull || '-',
         ID: equipmentId,
-        Seal: { ID: container?.seals || spec.sealsSegment.marksOfSeals || '' },
-        TransportEquipmentMeasure: { TareWeightMeasure: { '@_unitCode': 'KGM', '#text': 0 } },
+        Seal: { ID: container?.seals || spec.sealsSegment.marksOfSeals || '-' },
+        TransportEquipmentMeasure: { TareWeightMeasure: { '@_unitCode': 'KGM', '#text': formatWeight(undefined) } },
       },
-      UnloadingLocation: { Name: '', ID: spec.placeOfUnloadingSegment.code },
+      UnloadingLocation: { Name: '-', ID: spec.placeOfUnloadingSegment.code },
     };
   });
 
   warnings.push(
-    `ValueAmount has no source field in B'Odogwu — defaulted to ${formatAmount(undefined)} (the NSW schema rejects 0 for money fields; minimum is 0.01). TareWeightMeasure still defaults to 0 since it's a weight, not a currency amount — flag if that also needs a non-zero minimum.`
+    `ValueAmount has no source field in B'Odogwu — defaulted to ${formatAmount(undefined)} (the NSW schema rejects 0 for money fields; minimum is 0.01). TareWeightMeasure has no source field either and is likewise defaulted to ${formatWeight(undefined).toFixed(2)} rather than 0.`
   );
 
   const declarationObj = {

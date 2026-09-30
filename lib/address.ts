@@ -32,8 +32,9 @@ export function addressToGovCbr(freeTextAddress: string): GovCbrAddress {
 }
 
 export function partyToGovCbr(name: string, address: string): GovCbrParty {
+  const trimmedName = (name || '').trim();
   return {
-    Name: name || '',
+    Name: trimmedName.length > 0 ? trimmedName : '-',
     Address: addressToGovCbr(address),
   };
 }
@@ -43,8 +44,9 @@ export function partyToGovCbrWithId(
   address: string,
   id: string
 ): GovCbrPartyWithId {
+  const trimmedName = (name || '').trim();
   return {
-    Name: name || '',
+    Name: trimmedName.length > 0 ? trimmedName : '-',
     ID: id && id.trim().length > 0 ? id : 'NA',
     Address: addressToGovCbr(address),
   };
@@ -63,7 +65,8 @@ export function addressFromGovCbr(addr?: Partial<GovCbrAddress>): string {
 }
 
 export function nameFromGovCbr(party?: { Name?: string }): string {
-  return party?.Name?.trim() || '';
+  const name = party?.Name?.trim();
+  return name && name !== '-' ? name : '';
 }
 
 export function idFromGovCbr(party?: { ID?: string }): string {
