@@ -81,13 +81,48 @@ function resolveBolTypeCode(
   return interim;
 }
 
-// Container/equipment IDs follow the ISO 6346 shipping-container number
-// format (4 letters + 7 digits, e.g. "PCIU6143333"). When no container
-// reference was supplied in the BL's `containers` array, use a placeholder
-// rather than silently falling back to unrelated free text.
-function equipmentIdOrPlaceholder(value: string | undefined): string {
+// Container/equipment IDs (Consignment/TransportEquipment/ID and
+// ConsignmentItem/TransportEquipment/ID — both Mandatory, max length 17 per
+// the NSW parameter definitions) follow the ISO 6346 shipping-container
+// number format: 4 letters + 7 digits, e.g. "PCIU6143333". Three cases:
+//   - no reference supplied at all in `containers[]`        -> "NA"
+//   - a reference is supplied but doesn't match the format  -> "-", flagged
+//   - a reference is supplied and matches                   -> passed through
+// A malformed ID isn't rejected outright (that would fail an entire batch
+// over one bad record); it's swapped for a placeholder and surfaced as a
+// warning so the ops team can fix the source data before submitting.
+const CONTAINER_ID_PATTERN = /^[A-Z]{4}\d{7}$/;
+
+// The reverse of BOL_TYPE_EDIFACT_1001_CODE, plus the single-letter interim
+// values resolveBolTypeCode() falls back to for codes it doesn't recognize
+// (see above) — needed so a GovCBR file produced by this tool round-trips
+// back to the right bolTypeSegment.code instead of carrying the raw EDIFACT
+// code or letter through as if it were the word itself.
+const BOL_TYPE_FROM_CODE: Record<string, string> = { '704': 'Master', H: 'House', M: 'Master' };
+
+// "-" and "NA" are the placeholders this converter writes into GovCBR for
+// missing source data (see resolveEquipmentId, partyToGovCbr, etc.). When
+// reading a GovCBR file back into B'Odogwu, treat them as "no data" rather
+// than carrying the literal placeholder text back in as if it were real.
+function valueOrEmpty(value: unknown): string {
+  // fast-xml-parser auto-converts numeric-looking text content (e.g. a
+  // purely-numeric MarksNumbersID or Seal.ID) to a JS number, so this
+  // can't assume it's already a string.
+  const trimmed = String(value ?? '').trim();
+  return trimmed.length === 0 || trimmed === '-' || trimmed === 'NA' ? '' : trimmed;
+}
+
+function resolveEquipmentId(value: string | undefined, blReference: string, warnings: string[]): string {
   const trimmed = (value || '').trim();
-  return trimmed.length > 0 ? trimmed : 'NA';
+  if (trimmed.length === 0) return 'NA';
+
+  const normalized = trimmed.toUpperCase();
+  if (CONTAINER_ID_PATTERN.test(normalized)) return normalized;
+
+  warnings.push(
+    `BL "${blReference}": container/equipment ID "${trimmed}" doesn't match the expected ISO 6346 format (4 letters + 7 digits, e.g. "PCIU6143333") — used "-" as a placeholder. Verify the source container reference.`
+  );
+  return '-';
 }
 
 // A note attached to the conversion result so the shipping-line ops team can
@@ -137,9 +172,16 @@ export function bodogwuToGovCbr(
     // A BL is "containerized" if it has a container entry with a type code;
     // otherwise (e.g. vehicle/RoRo cargo) we fall back to the items[] entry.
     const isContainerized = Boolean(container?.type);
-    const equipmentId = equipmentIdOrPlaceholder(
-      isContainerized ? container?.reference : container?.reference || item?.itemDescription
+    const equipmentId = resolveEquipmentId(
+      isContainerized ? container?.reference : container?.reference || item?.itemDescription,
+      bl.identificationSegment.bolReference,
+      warnings
     );
+
+    // Commodity/CargoDescription is Mandatory per the NSW parameter
+    // definitions, same placeholder convention as the other Mandatory text
+    // fields above.
+    const goodsDescription = spec.goodsDescription || '-';
 
     const additionalInformation: Record<string, unknown>[] = [
       {
@@ -150,7 +192,7 @@ export function bodogwuToGovCbr(
       },
       {
         StatementCode: 'GOODSDESC',
-        StatementDescription: spec.goodsDescription || '',
+        StatementDescription: goodsDescription,
       },
     ];
 
@@ -173,7 +215,7 @@ export function bodogwuToGovCbr(
         SequenceNumeric: 1,
         Commodity: {
           SequenceNumeric: 1,
-          CargoDescription: spec.goodsDescription || '',
+          CargoDescription: goodsDescription,
           Classification: { ID: config.hsCode, IdentificationTypeCode: 'HS' },
         },
         Freight: {
@@ -185,7 +227,7 @@ export function bodogwuToGovCbr(
           NetVolumeMeasure: spec.volumeInCubicMeters,
         },
         Packaging: {
-          MarksNumbersID: spec.shippingMarks || '',
+          MarksNumbersID: spec.shippingMarks || '-',
           QuantityQuantity: {
             '@_unitCode': 'EA',
             '#text': spec.packagesSegment.numberOfPackages,
@@ -201,7 +243,7 @@ export function bodogwuToGovCbr(
       DeliveryDestination: { ID: spec.placeOfUnloadingSegment.code },
       GoodsReceiptPlace: { Name: '-' },
       GovernmentProcedure: { CurrentCode: spec.bolNature },
-      LoadingLocation: { ID: spec.placeOfLoadingSegment.code },
+      LoadingLocation: { ID: spec.placeOfLoadingSegment.code || 'NA' },
       NotifyParty: partyToGovCbr(spec.notifySegment.name, spec.notifySegment.address),
       TransportContractDocument: {
         ID: bl.identificationSegment.bolReference,
@@ -367,7 +409,12 @@ export function govCbrToBodogwu(
   const blSegments: BodogwuBl[] = consignments.map((c: any, idx: number) => {
     const item = c.ConsignmentItem;
     const equipment = c.TransportEquipment; // consignment-level (not ConsignmentItem's)
-    const isContainerized = Boolean(equipment?.CharacteristicCode);
+    // CharacteristicCode is now always written as "-" rather than "" for
+    // non-containerized BLs (see resolveEquipmentId / the Mandatory-field
+    // placeholder convention above), so plain truthiness would misdetect
+    // every BL as containerized. valueOrEmpty() strips that placeholder
+    // back to "" so this check behaves the same as before that change.
+    const isContainerized = Boolean(valueOrEmpty(equipment?.CharacteristicCode));
 
     const goodsDescStatement = Array.isArray(c.AdditionalInformation)
       ? c.AdditionalInformation.find((ai: any) => ai.StatementCode === 'GOODSDESC')
@@ -375,7 +422,7 @@ export function govCbrToBodogwu(
       ? c.AdditionalInformation
       : undefined;
     const goodsDescription =
-      goodsDescStatement?.StatementDescription || item?.Commodity?.CargoDescription || '';
+      valueOrEmpty(goodsDescStatement?.StatementDescription) || valueOrEmpty(item?.Commodity?.CargoDescription);
 
     const grossMassRaw = item?.GoodsMeasure?.GrossMassMeasure;
     const grossMass = typeof grossMassRaw === 'object' ? Number(grossMassRaw?.['#text'] ?? 0) : Number(grossMassRaw ?? 0);
@@ -387,15 +434,15 @@ export function govCbrToBodogwu(
     const freightValue = typeof freightRateRaw === 'object' ? Number(freightRateRaw?.['#text'] ?? 0) : Number(freightRateRaw ?? 0);
     const freightCurrency = typeof freightRateRaw === 'object' ? freightRateRaw?.['@_currencyID'] || 'USD' : 'USD';
 
-    const sealId = equipment?.Seal?.ID || '';
+    const sealId = valueOrEmpty(equipment?.Seal?.ID);
 
     const containers = isContainerized
       ? [
           {
-            reference: equipment?.ID || '',
+            reference: valueOrEmpty(equipment?.ID),
             numberOfPackages: String(packageQty),
-            type: equipment?.CharacteristicCode || '',
-            emptyFull: equipment?.FullnessCode || '',
+            type: valueOrEmpty(equipment?.CharacteristicCode),
+            emptyFull: valueOrEmpty(equipment?.FullnessCode),
             seals: sealId,
             marks1: '',
             marks2: '',
@@ -404,11 +451,12 @@ export function govCbrToBodogwu(
         ]
       : [];
 
-    const items = !isContainerized && equipment?.ID
+    const equipmentIdRaw = valueOrEmpty(equipment?.ID);
+    const items = !isContainerized && equipmentIdRaw
       ? [
           {
             itemNumber: 1,
-            itemDescription: equipment.ID,
+            itemDescription: equipmentIdRaw,
             numberOfPackages: 1,
             packageTypeCode: 'VH',
           },
@@ -432,11 +480,14 @@ export function govCbrToBodogwu(
         volumeInCubicMeters: Number(item?.GoodsMeasure?.NetVolumeMeasure ?? 0),
         numberOfSubBols: 0,
         bolTypeSegment: {
-          code:
-            c.TransportContractDocument?.TypeCode &&
-            c.TransportContractDocument.TypeCode !== 'Typ'
-              ? c.TransportContractDocument.TypeCode
-              : 'Master',
+          code: (() => {
+            // fast-xml-parser auto-converts numeric-looking text content
+            // (e.g. "704") to a JS number, so this can't be assumed to
+            // already be a string.
+            const raw = String(c.TransportContractDocument?.TypeCode ?? '').trim();
+            if (!raw || raw === 'Typ') return 'Master';
+            return BOL_TYPE_FROM_CODE[raw.toUpperCase()] || raw;
+          })(),
         },
         exporterSegment: {
           name: nameFromGovCbr(c.Consignor),
@@ -453,10 +504,10 @@ export function govCbrToBodogwu(
           address: addressFromGovCbr(c.NotifyParty?.Address),
           code: '',
         },
-        placeOfLoadingSegment: { code: c.LoadingLocation?.ID || '' },
-        placeOfUnloadingSegment: { code: c.DeliveryDestination?.ID || '' },
+        placeOfLoadingSegment: { code: valueOrEmpty(c.LoadingLocation?.ID) },
+        placeOfUnloadingSegment: { code: valueOrEmpty(c.DeliveryDestination?.ID) },
         packagesSegment: { packageTypeCode: isContainerized ? 'CT' : 'VH', numberOfPackages: packageQty },
-        shippingMarks: item?.Packaging?.MarksNumbersID || '',
+        shippingMarks: valueOrEmpty(item?.Packaging?.MarksNumbersID),
         goodsDescription,
         freightSegment: {
           indicatorSegment: { code: item?.Freight?.PaymentMethodCode || '' },
